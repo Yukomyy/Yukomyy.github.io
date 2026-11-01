@@ -1,0 +1,2093 @@
+export type Language = "en" | "id";
+
+export type FocusCategory =
+  | "Software Engineering"
+  | "Data Analytics"
+  | "Data Engineering"
+  | "Data Science"
+  | "Web Development";
+
+export type ProficiencyLevel =
+  | "Primary Focus"
+  | "Working Knowledge"
+  | "Currently Learning";
+
+export type BilingualText = {
+  en: string;
+  id: string;
+};
+
+export interface FocusArea {
+  number: string;
+  category: FocusCategory;
+  title: BilingualText;
+  proficiency: ProficiencyLevel;
+  proficiencyLabel: BilingualText;
+  summary: BilingualText;
+  capabilities: {
+    en: string[];
+    id: string[];
+  };
+  technologies: string[];
+  relatedProjectSlugs: string[];
+}
+
+export interface ProjectCaseStudy {
+  slug: string;
+  index: string;
+  title: BilingualText;
+  category: FocusCategory;
+  secondaryCategories: FocusCategory[];
+  contextLabel: BilingualText; // e.g. "Information Systems Capstone" or "Independent Engineering Project"
+  year: string;
+  shortDescription: BilingualText;
+  problemSummary: BilingualText;
+  myContribution: BilingualText;
+  technologies: string[];
+  outcomeSummary: BilingualText;
+  outcomeVerifiedNote: BilingualText;
+  repoUrl: string;
+  liveUrl?: string;
+  diagramType:
+    | "erp-architecture"
+    | "cohort-analytics"
+    | "etl-warehouse"
+    | "churn-ml-pipeline"
+    | "booking-system"
+    | "financial-mart";
+  caseStudy: {
+    overview: BilingualText;
+    problemStatement: BilingualText;
+    objectives: {
+      en: string[];
+      id: string[];
+    };
+    solution: BilingualText;
+    architectureWorkflow: {
+      summary: BilingualText;
+      steps: {
+        stage: string;
+        title: BilingualText;
+        detail: BilingualText;
+      }[];
+    };
+    techStackDetailed: {
+      layer: string;
+      items: string[];
+      rationale: BilingualText;
+    }[];
+    implementation: {
+      narrative: BilingualText;
+      codeTitle: string;
+      codeLanguage: string;
+      codeSnippet: string;
+    };
+    challengesAndDecisions: {
+      challenge: BilingualText;
+      decision: BilingualText;
+      tradeoff: BilingualText;
+    }[];
+    results: {
+      en: string[];
+      id: string[];
+    };
+    whatILearned: BilingualText;
+  };
+}
+
+export interface SkillSubgroup {
+  name: BilingualText;
+  items: {
+    name: string;
+    level: "Primary" | "Working" | "Learning";
+  }[];
+}
+
+export interface SkillGroup {
+  id: string;
+  index: string;
+  title: BilingualText;
+  description: BilingualText;
+  subgroups: SkillSubgroup[];
+}
+
+export interface TimelineEntry {
+  id: string;
+  type: "Education" | "Project & Lab" | "Organization" | "Coursework & Activity";
+  typeLabel: BilingualText;
+  organization: BilingualText;
+  roleOrDegree: BilingualText;
+  period: BilingualText;
+  location: string;
+  description: BilingualText;
+  highlights: {
+    en: string[];
+    id: string[];
+  };
+  isPlaceholderNote?: BilingualText;
+}
+
+export interface TechnicalNote {
+  id: string;
+  index: string;
+  date: string;
+  category: FocusCategory;
+  readingTime: string;
+  title: BilingualText;
+  summary: BilingualText;
+  keyTakeaways: {
+    en: string[];
+    id: string[];
+  };
+  codeSnippet?: {
+    caption: string;
+    code: string;
+  };
+  body: {
+    en: string[];
+    id: string[];
+  };
+}
+
+export const PROFILE_DATA = {
+  name: "Fahmi Irfan",
+  initials: "FI",
+  roleTitle: {
+    en: "Information Systems Student — Software & Data Engineering",
+    id: "Mahasiswa Sistem Informasi — Rekayasa Perangkat Lunak & Data",
+  },
+  heroHeadline: {
+    en: "Building software. Understanding data. Solving real problems.",
+    id: "Membangun perangkat lunak. Memahami data. Menyelesaikan masalah nyata.",
+  },
+  heroSupporting: {
+    en: "Information Systems undergraduate focused on software development, data systems, and practical technology solutions that bridge operational needs with reliable engineering.",
+    id: "Mahasiswa Sistem Informasi yang berfokus pada pengembangan perangkat lunak, sistem data, dan solusi teknologi praktis yang menjembatani kebutuhan operasional dengan rekayasa yang andal.",
+  },
+  location: {
+    en: "Indonesia (Open to On-site, Hybrid & Remote)",
+    id: "Indonesia (Terbuka untuk On-site, Hybrid & Remote)",
+  },
+  status: {
+    en: "Available for Software Engineering & Data Internships / Entry-Level Roles",
+    id: "Tersedia untuk Magang & Posisi Entry-Level di bidang Software & Data",
+  },
+  email: "fhmiirfn2006@gmail.com",
+  githubUrl: "https://github.com/Yukomyy",
+  githubHandle: "github.com/Yukomyy",
+  linkedinUrl: "https://www.linkedin.com/in/fahmi-irfan",
+  linkedinHandle: "linkedin.com/in/fahmi-irfan",
+  resumePath: "/resume-fahmi-irfan.pdf",
+  hrdQuickFacts: [
+    {
+      label: { en: "Academic Background", id: "Latar Belakang Akademik" },
+      value: {
+        en: "B.S. in Information Systems (Undergraduate)",
+        id: "S1 Sistem Informasi (Mahasiswa Aktif)",
+      },
+    },
+    {
+      label: { en: "Target Roles", id: "Target Posisi" },
+      value: {
+        en: "Software Engineer, Data Analyst, Data Engineer, Web Developer",
+        id: "Software Engineer, Data Analyst, Data Engineer, Web Developer",
+      },
+    },
+    {
+      label: { en: "Core Stack", id: "Teknologi Utama" },
+      value: {
+        en: "TypeScript, Python, SQL (PostgreSQL), React / Next.js, Node.js",
+        id: "TypeScript, Python, SQL (PostgreSQL), React / Next.js, Node.js",
+      },
+    },
+    {
+      label: { en: "Engineering Focus", id: "Fokus Rekayasa" },
+      value: {
+        en: "Relational Schema Design, REST APIs, Analytical SQL, ETL Pipelines",
+        id: "Desain Skema Relasional, REST API, Analytical SQL, Pipeline ETL",
+      },
+    },
+  ],
+  about: {
+    lead: {
+      en: "I study Information Systems with a straightforward goal: learning how organizations operate, where data and software bottlenecks happen, and how to engineer clean, maintainable systems that fix them.",
+      id: "Saya mempelajari Sistem Informasi dengan tujuan yang jelas: memahami bagaimana organisasi beroperasi, di mana hambatan perangkat lunak dan data terjadi, serta bagaimana merancang sistem yang rapi dan mudah dipelihara untuk menyelesaikannya.",
+    },
+    paragraphs: {
+      en: [
+        "Because Information Systems sits between software engineering and business operations, my coursework and project work naturally span two connected layers: building transactional web applications that capture clean data, and designing analytical queries, pipelines, and models that turn that data into operational decisions.",
+        "When approaching a problem, I start with the data model and domain constraints before choosing frameworks. Whether I am normalizing a PostgreSQL schema for an inventory workflow, writing window functions to audit cohort retention, or structuring a typed Next.js frontend, I prioritize clarity, predictable behavior, and code that another engineer can read without guesswork.",
+        "I am currently seeking internship or entry-level opportunities in Software Engineering, Web Development, Data Analytics, or Data Engineering where I can contribute to production codebases, learn from experienced engineering and data teams, and take ownership of real technical deliverables.",
+      ],
+      id: [
+        "Karena disiplin Sistem Informasi berada di persimpangan antara rekayasa perangkat lunak dan operasional bisnis, proyek akademik maupun mandiri saya mencakup dua lapisan yang saling terhubung: membangun aplikasi web transaksional yang mencatat data secara bersih, serta merancang kueri analitik, pipeline, dan model yang mengubah data tersebut menjadi keputusan operasional.",
+        "Saat menghadapi masalah teknis, saya selalu memulai dari pemodelan data dan batasan domain sebelum memilih framework. Baik saat menormalisasi skema PostgreSQL untuk alur inventaris, menulis window function untuk mengaudit retensi kohort, maupun menyusun antarmuka Next.js bertipe kuat, saya memprioritaskan kejelasan, perilaku sistem yang terprediksi, dan kode yang mudah dipahami rekan tim.",
+        "Saat ini saya mencari kesempatan magang (internship) atau posisi entry-level di bidang Software Engineering, Web Development, Data Analytics, atau Data Engineering di mana saya dapat berkontribusi pada sistem produksi dan belajar langsung dari tim rekayasa maupun data.",
+      ],
+    },
+    methodology: [
+      {
+        step: "01",
+        title: {
+          en: "Model the Domain First",
+          id: "Pemodelan Domain Terlebih Dahulu",
+        },
+        description: {
+          en: "Map business rules, entity relationships, and edge cases into explicit schemas before writing application logic.",
+          id: "Memetakan aturan bisnis, relasi entitas, dan kasus batas ke dalam skema eksplisit sebelum menulis logika aplikasi.",
+        },
+      },
+      {
+        step: "02",
+        title: {
+          en: "Build for Maintainability",
+          id: "Membangun untuk Kemudahan Pemeliharaan",
+        },
+        description: {
+          en: "Use strict typing, modular service layers, and idempotent SQL scripts so changes remain safe and verifiable.",
+          id: "Menggunakan pengetikan ketat (strict typing), lapisan layanan modular, dan skrip SQL idempoten agar perubahan tetap aman.",
+        },
+      },
+      {
+        step: "03",
+        title: {
+          en: "Validate with Real Data",
+          id: "Validasi dengan Data Nyata",
+        },
+        description: {
+          en: "Test assumptions against realistic dataset distributions, query execution plans, and user workflows.",
+          id: "Menguji asumsi terhadap distribusi dataset yang realistis, rencana eksekusi kueri, dan alur kerja pengguna.",
+        },
+      },
+    ],
+  },
+};
+
+export const FOCUS_AREAS: FocusArea[] = [
+  {
+    number: "01",
+    category: "Software Engineering",
+    title: {
+      en: "Software Engineering",
+      id: "Rekayasa Perangkat Lunak (SE)",
+    },
+    proficiency: "Primary Focus",
+    proficiencyLabel: {
+      en: "Primary Focus",
+      id: "Fokus Utama",
+    },
+    summary: {
+      en: "Designing modular backend services, relational database schemas, and domain-driven business logic with strong typing and predictable API contracts.",
+      id: "Merancang layanan backend modular, skema basis data relasional, dan logika bisnis berbasis domain dengan kontrak API yang terstruktur.",
+    },
+    capabilities: {
+      en: [
+        "RESTful API design, request validation, and role-based authentication",
+        "Relational database modeling (3NF), indexing, and ACID transaction handling",
+        "Automated testing, error handling, and clean layered architecture",
+      ],
+      id: [
+        "Desain RESTful API, validasi request, dan autentikasi berbasis peran (RBAC)",
+        "Pemodelan basis data relasional (3NF), indexing, dan penanganan transaksi ACID",
+        "Pengujian terotomasi, penanganan error, dan arsitektur berlapis yang bersih",
+      ],
+    },
+    technologies: [
+      "TypeScript",
+      "Python",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma / Drizzle",
+      "REST APIs",
+      "Docker",
+      "Git",
+    ],
+    relatedProjectSlugs: [
+      "erp-procurement-inventory",
+      "campus-lab-booking-platform",
+    ],
+  },
+  {
+    number: "02",
+    category: "Data Analytics",
+    title: {
+      en: "Data Analytics",
+      id: "Analitik Data (DA)",
+    },
+    proficiency: "Primary Focus",
+    proficiencyLabel: {
+      en: "Primary Focus",
+      id: "Fokus Utama",
+    },
+    summary: {
+      en: "Translating operational questions into analytical SQL queries, cohort analyses, and clear decision-support dashboards without vanity metrics.",
+      id: "Menerjemahkan pertanyaan operasional menjadi kueri SQL analitik, analisis kohort, dan dashboard pendukung keputusan yang jelas.",
+    },
+    capabilities: {
+      en: [
+        "Complex SQL queries using CTEs, window functions, and aggregations",
+        "Exploratory data analysis (EDA), data cleaning, and anomaly detection in Python",
+        "KPI definition, cohort retention tracking, and executive reporting design",
+      ],
+      id: [
+        "Kueri SQL kompleks menggunakan CTE, window function, dan agregasi",
+        "Exploratory Data Analysis (EDA), pembersihan data, dan deteksi anomali dengan Python",
+        "Definisi KPI, pelacakan retensi kohort, dan desain laporan operasional",
+      ],
+    },
+    technologies: [
+      "SQL (PostgreSQL / DuckDB)",
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Looker Studio / Power BI",
+      "Matplotlib / Seaborn",
+      "Excel (Pivot / PowerQuery)",
+    ],
+    relatedProjectSlugs: [
+      "retail-cohort-analytics",
+      "financial-logistics-reporting",
+    ],
+  },
+  {
+    number: "03",
+    category: "Data Engineering",
+    title: {
+      en: "Data Engineering",
+      id: "Rekayasa Data (DE)",
+    },
+    proficiency: "Working Knowledge",
+    proficiencyLabel: {
+      en: "Working Knowledge",
+      id: "Pengetahuan Praktis",
+    },
+    summary: {
+      en: "Building reproducible batch ETL/ELT pipelines, staging validation rules, and dimensional star schemas that consolidate fragmented data sources.",
+      id: "Membangun pipeline ETL/ELT batch yang dapat direproduksi, aturan validasi staging, dan star schema dimensional dari berbagai sumber data.",
+    },
+    capabilities: {
+      en: [
+        "Idempotent batch ingestion from CSV, REST APIs, and OLTP databases",
+        "Dimensional modeling (Fact & Dimension tables, Star Schema design)",
+        "Data quality assertions, deduplication, and scheduled transformation scripts",
+      ],
+      id: [
+        "Ingesti batch idempoten dari file CSV, REST API, dan basis data OLTP",
+        "Pemodelan dimensional (tabel Fact & Dimension, desain Star Schema)",
+        "Validasi kualitas data, deduplikasi, dan skrip transformasi terjadwal",
+      ],
+    },
+    technologies: [
+      "Python",
+      "SQL",
+      "PostgreSQL",
+      "dbt (Core fundamentals)",
+      "DuckDB",
+      "Cron / GitHub Actions",
+      "Docker",
+    ],
+    relatedProjectSlugs: [
+      "operational-etl-warehouse",
+      "financial-logistics-reporting",
+    ],
+  },
+  {
+    number: "04",
+    category: "Data Science",
+    title: {
+      en: "Data Science",
+      id: "Sains Data (DS)",
+    },
+    proficiency: "Currently Learning",
+    proficiencyLabel: {
+      en: "Currently Learning",
+      id: "Sedang Mendalami",
+    },
+    summary: {
+      en: "Applying foundational statistical modeling, feature engineering, and interpretable supervised learning models to structured business datasets.",
+      id: "Menerapkan pemodelan statistik dasar, rekayasa fitur (feature engineering), dan model supervised learning yang dapat diinterpretasikan.",
+    },
+    capabilities: {
+      en: [
+        "Feature engineering and leakage-safe train/validation splitting on tabular data",
+        "Classification and regression baselines (Logistic Regression, Random Forest, Gradient Boosting)",
+        "Model evaluation using Precision-Recall, ROC-AUC, and feature importance analysis",
+      ],
+      id: [
+        "Feature engineering dan pembagian train/validation tanpa kebocoran data (data leakage)",
+        "Model baseline klasifikasi dan regresi (Logistic Regression, Random Forest, Gradient Boosting)",
+        "Evaluasi model menggunakan Precision-Recall, ROC-AUC, dan analisis kepentingan fitur",
+      ],
+    },
+    technologies: [
+      "Python",
+      "Scikit-Learn",
+      "Pandas",
+      "Statsmodels",
+      "Jupyter Notebook",
+      "SQL",
+    ],
+    relatedProjectSlugs: ["churn-demand-forecasting"],
+  },
+  {
+    number: "05",
+    category: "Web Development",
+    title: {
+      en: "Web Development",
+      id: "Pengembangan Web",
+    },
+    proficiency: "Primary Focus",
+    proficiencyLabel: {
+      en: "Primary Focus",
+      id: "Fokus Utama",
+    },
+    summary: {
+      en: "Developing accessible, fast, and responsive full-stack web applications with clean component architecture and intuitive data-dense interfaces.",
+      id: "Mengembangkan aplikasi web full-stack yang responsif, cepat, dan aksesibel dengan arsitektur komponen yang bersih.",
+    },
+    capabilities: {
+      en: [
+        "Component-driven frontend architecture with React, Next.js, and TypeScript",
+        "Accessible semantic HTML, responsive CSS grid systems, and form state management",
+        "End-to-end integration with SQL backends, server routes, and static/cloud deployment",
+      ],
+      id: [
+        "Arsitektur frontend berbasis komponen dengan React, Next.js, dan TypeScript",
+        "HTML semantik yang aksesibel, sistem grid CSS responsif, dan manajemen state form",
+        "Integrasi end-to-end dengan backend SQL, rute server, dan deployment terotomasi",
+      ],
+    },
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "HTML5 / CSS3",
+      "Node.js",
+      "PostgreSQL",
+    ],
+    relatedProjectSlugs: [
+      "campus-lab-booking-platform",
+      "erp-procurement-inventory",
+    ],
+  },
+];
+
+export const PROJECTS: ProjectCaseStudy[] = [
+  {
+    slug: "erp-procurement-inventory",
+    index: "PRJ-01",
+    title: {
+      en: "Modular Inventory & Procurement Management System",
+      id: "Sistem Manajemen Inventaris & Pengadaan Modular",
+    },
+    category: "Software Engineering",
+    secondaryCategories: ["Web Development"],
+    contextLabel: {
+      en: "Information Systems Analysis & Design Project",
+      id: "Proyek Analisis & Perancangan Sistem Informasi",
+    },
+    year: "2025",
+    shortDescription: {
+      en: "A transactional web system for tracking multi-location stock movements, purchase requisitions, supplier approvals, and auditable stock ledgers.",
+      id: "Sistem web transaksional untuk melacak pergerakan stok multi-lokasi, permintaan pembelian, persetujuan pemasok, dan buku besar stok yang dapat diaudit.",
+    },
+    problemSummary: {
+      en: "Manual spreadsheet tracking caused stock discrepancies between purchase orders and goods receipt notes, with no audit trail for stock adjustments.",
+      id: "Pelacakan spreadsheet manual menyebabkan selisih stok antara pesanan pembelian dan catatan penerimaan barang tanpa jejak audit.",
+    },
+    myContribution: {
+      en: "Designed the normalized 14-table PostgreSQL schema, implemented ACID stock-ledger transaction services in TypeScript, and built the role-based operational interface.",
+      id: "Merancang skema PostgreSQL ternormalisasi (14 tabel), mengimplementasikan layanan transaksi buku besar stok ACID dengan TypeScript, dan membangun antarmuka operasional berbasis peran.",
+    },
+    technologies: [
+      "TypeScript",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma ORM",
+      "Tailwind CSS",
+      "Docker",
+    ],
+    outcomeSummary: {
+      en: "Eliminated negative-stock race conditions via append-only inventory ledger transactions and enforced 3-way matching across PO, GRN, and stock state.",
+      id: "Menghilangkan kondisi balapan (race condition) stok negatif melalui transaksi buku besar inventaris append-only dan pencocokan 3 arah (PO, GRN, Stok).",
+    },
+    outcomeVerifiedNote: {
+      en: "Verified on simulated 10,000-row transaction test dataset (Academic/Portfolio Prototype — Editable for user-specific metrics)",
+      id: "Terverifikasi pada simulasi dataset uji 10.000 transaksi (Prototipe Akademik/Portofolio — Dapat diedit sesuai metrik aktual)",
+    },
+    repoUrl: "https://github.com/Yukomyy",
+    liveUrl: "https://yukomyy.github.io",
+    diagramType: "erp-architecture",
+    caseStudy: {
+      overview: {
+        en: "Small and mid-sized operational units frequently outgrow shared spreadsheets when managing purchasing and warehouse stock. This project implements a core Enterprise Resource Planning (ERP) procurement and inventory module designed around an immutable stock movement ledger rather than mutable quantity columns.",
+        id: "Unit operasional skala kecil dan menengah sering mengalami kendala saat mengelola pembelian dan stok gudang menggunakan spreadsheet bersama. Proyek ini mengimplementasikan modul pengadaan dan inventaris inti (ERP) yang dirancang di atas buku besar pergerakan stok (immutable ledger), bukan sekadar kolom kuantitas yang ditimpa.",
+      },
+      problemStatement: {
+        en: "When multiple staff record goods receipts and stock issuances concurrently, directly updating a single `quantity_on_hand` column leads to lost updates, unexplainable inventory variances, and zero historical visibility into stock levels at a specific date.",
+        id: "Ketika beberapa staf mencatat penerimaan dan pengeluaran barang secara bersamaan, memperbarui satu kolom `quantity_on_hand` secara langsung memicu pembaruan yang hilang (lost updates), selisih inventaris yang sulit ditelusuri, dan hilangnya visibilitas historis.",
+      },
+      objectives: {
+        en: [
+          "Model an append-only `stock_ledger_entries` table where current stock is deterministically derived from signed movement deltas.",
+          "Enforce a strict procurement state machine: Draft Requisition → Approved PO → Partial/Full Goods Receipt → Ledger Posting.",
+          "Prevent concurrent over-allocation using database row-level locking (`SELECT ... FOR UPDATE`) inside serializable transactions.",
+          "Provide clear audit trails showing who approved or adjusted every stock movement.",
+        ],
+        id: [
+          "Memodelkan tabel `stock_ledger_entries` append-only di mana stok saat ini diturunkan secara deterministik dari selisih pergerakan.",
+          "Menegakkan state machine pengadaan: Draf Permintaan → PO Disetujui → Penerimaan Barang Parsial/Penuh → Posting Buku Besar.",
+          "Mencegah alokasi berlebih secara bersamaan menggunakan penguncian baris (`SELECT ... FOR UPDATE`) di dalam transaksi basis data.",
+          "Menyediakan jejak audit lengkap yang mencatat siapa yang menyetujui atau menyesuaikan setiap pergerakan stok.",
+        ],
+      },
+      solution: {
+        en: "I architected a full-stack TypeScript application backed by PostgreSQL. Instead of mutating item counts destructively, every goods receipt, outbound issuance, or cycle-count adjustment writes an immutable ledger record paired with a cached snapshot balance updated atomically within the same SQL transaction.",
+        id: "Saya merancang aplikasi full-stack TypeScript yang didukung PostgreSQL. Alih-alih mengubah jumlah barang secara destruktif, setiap penerimaan barang, pengeluaran, atau penyesuaian stok menulis catatan buku besar yang tidak dapat diubah (immutable) sekaligus memperbarui saldo snapshot secara atomik dalam satu transaksi SQL.",
+      },
+      architectureWorkflow: {
+        summary: {
+          en: "Layered service architecture separating HTTP route controllers, domain validation services, and transactional PostgreSQL persistence.",
+          id: "Arsitektur layanan berlapis yang memisahkan pengendali rute HTTP, layanan validasi domain, dan persistensi PostgreSQL transaksional.",
+        },
+        steps: [
+          {
+            stage: "01 / Client & RBAC",
+            title: {
+              en: "Role-Gated Operations UI",
+              id: "Antarmuka Operasional Berbasis Peran",
+            },
+            detail: {
+              en: "Requester, Warehouse Officer, and Procurement Approver views with strict server-side permission checks.",
+              id: "Tampilan Pemohon, Staf Gudang, dan Penyetuju Pengadaan dengan pemeriksaan izin ketat di sisi server.",
+            },
+          },
+          {
+            stage: "02 / Domain Layer",
+            title: {
+              en: "Procurement State Machine & Validator",
+              id: "State Machine & Validator Pengadaan",
+            },
+            detail: {
+              en: "Verifies that Goods Receipt quantities never exceed open Purchase Order line balances.",
+              id: "Memverifikasi bahwa kuantitas Penerimaan Barang tidak melebihi saldo baris Purchase Order yang terbuka.",
+            },
+          },
+          {
+            stage: "03 / Persistence",
+            title: {
+              en: "ACID Ledger Transaction",
+              id: "Transaksi Buku Besar ACID",
+            },
+            detail: {
+              en: "Locks target SKU warehouse row, inserts immutable ledger delta, and updates current balance snapshot atomically.",
+              id: "Mengunci baris gudang SKU target, menyisipkan delta buku besar, dan memperbarui snapshot saldo saat ini secara atomik.",
+            },
+          },
+        ],
+      },
+      techStackDetailed: [
+        {
+          layer: "Backend & Domain",
+          items: ["TypeScript", "Node.js", "Next.js Route Handlers", "Zod"],
+          rationale: {
+            en: "Shared runtime schema validation between client forms and backend transaction handlers.",
+            id: "Validasi skema runtime bersama antara form klien dan penangan transaksi backend.",
+          },
+        },
+        {
+          layer: "Database & ORM",
+          items: ["PostgreSQL 16", "Prisma ORM", "Raw SQL Transactions"],
+          rationale: {
+            en: "Strict relational integrity, foreign key constraints, and explicit row locking for inventory accuracy.",
+            id: "Integritas relasional yang ketat, batasan foreign key, dan penguncian baris eksplisit untuk akurasi inventaris.",
+          },
+        },
+        {
+          layer: "Frontend UI",
+          items: ["React", "Tailwind CSS"],
+          rationale: {
+            en: "High-density tabular layouts optimized for keyboard navigation and operational clarity.",
+            id: "Tata letak tabel berdensitas tinggi yang dioptimalkan untuk navigasi keyboard dan kejelasan operasional.",
+          },
+        },
+      ],
+      implementation: {
+        narrative: {
+          en: "The core engineering guarantee lives in the stock movement transaction service. Before recording an outbound issuance, the service acquires a row lock on the warehouse item balance, checks sufficiency, records the ledger entry with a reference document ID, and updates the balance.",
+          id: "Jaminan rekayasa utama berada pada layanan transaksi pergerakan stok. Sebelum mencatat pengeluaran barang, layanan memperoleh kunci baris pada saldo item gudang, memeriksa kecukupan stok, mencatat entri buku besar dengan ID dokumen referensi, dan memperbarui saldo.",
+        },
+        codeTitle: "src/services/inventoryLedger.ts",
+        codeLanguage: "typescript",
+        codeSnippet: `export async function postStockMovement(
+  tx: Prisma.TransactionClient,
+  input: {
+    skuId: string;
+    warehouseId: string;
+    deltaQty: number; // positive for receipt, negative for issuance
+    referenceType: "PO_RECEIPT" | "ISSUANCE" | "ADJUSTMENT";
+    referenceId: string;
+    actorId: string;
+  }
+) {
+  // 1. Acquire row-level lock on current stock balance
+  const [balance] = await tx.$queryRaw<Array<{ qty_on_hand: number }>>\`
+    SELECT qty_on_hand
+    FROM warehouse_stock_balances
+    WHERE sku_id = \${input.skuId} AND warehouse_id = \${input.warehouseId}
+    FOR UPDATE
+  \`;
+
+  const currentQty = balance?.qty_on_hand ?? 0;
+  const nextQty = currentQty + input.deltaQty;
+
+  if (nextQty < 0) {
+    throw new Error(\`Insufficient stock for SKU \${input.skuId}: available \${currentQty}, requested \${Math.abs(input.deltaQty)}\`);
+  }
+
+  // 2. Insert immutable audit ledger record
+  await tx.stockLedgerEntry.create({
+    data: {
+      skuId: input.skuId,
+      warehouseId: input.warehouseId,
+      deltaQty: input.deltaQty,
+      balanceAfter: nextQty,
+      referenceType: input.referenceType,
+      referenceId: input.referenceId,
+      createdById: input.actorId,
+    },
+  });
+
+  // 3. Upsert materialized balance snapshot
+  return tx.warehouseStockBalance.upsert({
+    where: { skuId_warehouseId: { skuId: input.skuId, warehouseId: input.warehouseId } },
+    update: { qtyOnHand: nextQty },
+    create: { skuId: input.skuId, warehouseId: input.warehouseId, qtyOnHand: nextQty },
+  });
+}`,
+      },
+      challengesAndDecisions: [
+        {
+          challenge: {
+            en: "Calculating stock balances on the fly with `SUM(delta_qty)` vs. storing a mutable `qty_on_hand` column.",
+            id: "Menghitung saldo stok secara langsung dengan `SUM(delta_qty)` vs. menyimpan kolom `qty_on_hand`.",
+          },
+          decision: {
+            en: "Implemented a hybrid Snapshot + Ledger pattern updated inside a single ACID transaction.",
+            id: "Mengimplementasikan pola hibrida Snapshot + Ledger yang diperbarui di dalam satu transaksi ACID.",
+          },
+          tradeoff: {
+            en: "Slightly higher write overhead per transaction in exchange for O(1) balance reads and a complete historical audit trail.",
+            id: "Sedikit tambahan beban tulis per transaksi demi pembacaan saldo O(1) dan jejak audit historis yang lengkap.",
+          },
+        },
+      ],
+      results: {
+        en: [
+          "100% reconciliation consistency between ledger history and materialized warehouse stock balances across concurrent test runs.",
+          "Full traceability from any warehouse stock unit back to its originating Purchase Order and supplier batch.",
+          "Clean separation of duties between Requesters, Approvers, and Warehouse staff.",
+        ],
+        id: [
+          "Konsistensi rekonsiliasi 100% antara riwayat buku besar dan saldo stok gudang pada pengujian konkuren.",
+          "Ketertelusuran penuh dari setiap unit stok gudang kembali ke Purchase Order asal dan batch pemasok.",
+          "Pemisahan tugas yang jelas antara Pemohon, Penyetuju, dan Staf Gudang.",
+        ],
+      },
+      whatILearned: {
+        en: "Building an ERP module taught me why accounting and inventory systems never overwrite numbers in place. Designing around immutable events and database constraints prevents entire classes of application bugs before they reach the UI.",
+        id: "Membangun modul ERP mengajarkan saya mengapa sistem akuntansi dan inventaris tidak pernah menimpa angka secara langsung. Merancang sistem berbasis peristiwa yang tidak dapat diubah (immutable events) dan batasan basis data mencegah banyak bug aplikasi sejak awal.",
+      },
+    },
+  },
+  {
+    slug: "retail-cohort-analytics",
+    index: "PRJ-02",
+    title: {
+      en: "Retail Sales & Customer Cohort Retention Analytics",
+      id: "Analitik Penjualan Ritel & Retensi Kohort Pelanggan",
+    },
+    category: "Data Analytics",
+    secondaryCategories: ["Data Engineering"],
+    contextLabel: {
+      en: "Analytical SQL & Python Case Study",
+      id: "Studi Kasus SQL Analitik & Python",
+    },
+    year: "2025",
+    shortDescription: {
+      en: "End-to-end transactional data analysis examining repeat purchase behavior, monthly cohort retention decay, and SKU revenue Pareto concentration.",
+      id: "Analisis data transaksional end-to-end yang mengkaji perilaku pembelian berulang, penurunan retensi kohort bulanan, dan konsentrasi pendapatan SKU (Pareto).",
+    },
+    problemSummary: {
+      en: "Top-line monthly revenue figures masked high first-time buyer churn and over-reliance on a narrow subset of promotional SKUs.",
+      id: "Angka pendapatan bulanan agregat menyembunyikan tingginya churn pembeli pertama dan ketergantungan berlebih pada sebagian kecil SKU promosi.",
+    },
+    myContribution: {
+      en: "Cleaned raw invoice records in Python, authored modular PostgreSQL window-function queries for cohort & RFM segmentation, and built an interactive decision dashboard.",
+      id: "Membersihkan catatan faktur mentah di Python, menulis kueri window-function PostgreSQL modular untuk segmentasi kohort & RFM, serta membangun dashboard keputusan interaktif.",
+    },
+    technologies: [
+      "SQL (PostgreSQL)",
+      "Python",
+      "Pandas",
+      "DuckDB",
+      "Looker Studio",
+      "Jupyter",
+    ],
+    outcomeSummary: {
+      en: "Processed 500,000+ line-item transactions into reproducible cohort retention matrices and RFM customer tiers for targeted retention actions.",
+      id: "Memproses 500.000+ baris transaksi menjadi matriks retensi kohort dan tingkatan pelanggan RFM yang dapat direproduksi.",
+    },
+    outcomeVerifiedNote: {
+      en: "Evaluated on public UCI Online Retail II benchmark dataset (Editable for custom datasets)",
+      id: "Dievaluasi pada dataset publik UCI Online Retail II (Dapat disesuaikan untuk dataset lain)",
+    },
+    repoUrl: "https://github.com/Yukomyy",
+    liveUrl: "https://yukomyy.github.io",
+    diagramType: "cohort-analytics",
+    caseStudy: {
+      overview: {
+        en: "Aggregate revenue dashboards often tell managers what happened last month, but fail to explain whether growth comes from acquiring new customers or retaining existing ones. This project decomposes raw e-commerce invoice logs into cohort retention tables, Recency-Frequency-Monetary (RFM) segments, and product basket metrics.",
+        id: "Dashboard pendapatan agregat sering memberi tahu manajer apa yang terjadi bulan lalu, namun gagal menjelaskan apakah pertumbuhan berasal dari akuisisi pelanggan baru atau retensi pelanggan lama. Proyek ini menguraikan log faktur e-commerce mentah menjadi tabel retensi kohort, segmen RFM, dan metrik keranjang produk.",
+      },
+      problemStatement: {
+        en: "Raw transactional exports contained cancelled invoices, missing customer identifiers, negative adjustments, and inconsistent SKU descriptions—making naive SQL `SUM(quantity * price)` queries inaccurate by over 12%.",
+        id: "Ekspor transaksi mentah mengandung faktur yang dibatalkan, ID pelanggan yang kosong, penyesuaian negatif, dan deskripsi SKU yang tidak konsisten—membuat kueri SQL `SUM(quantity * price)` naif meleset lebih dari 12%.",
+      },
+      objectives: {
+        en: [
+          "Establish a documented data cleaning pipeline that separates valid commercial orders from returns, credit notes, and non-merchandise fees.",
+          "Construct SQL CTE pipelines to measure Month-0 to Month-12 retention across acquisition cohorts.",
+          "Segment active customers using quantile-based RFM scoring to prioritize retention campaigns.",
+        ],
+        id: [
+          "Membangun pipeline pembersihan data terdokumentasi yang memisahkan pesanan komersial valid dari retur dan biaya non-barang.",
+          "Menyusun pipeline CTE SQL untuk mengukur retensi Bulan-0 hingga Bulan-12 di seluruh kohort akuisisi.",
+          "Melakukan segmentasi pelanggan aktif menggunakan penilaian RFM berbasis kuantil.",
+        ],
+      },
+      solution: {
+        en: "I built a two-stage workflow: a Python/Pandas validation script that standardizes raw CSV invoice dumps and flags data anomalies, followed by an analytical SQL layer in PostgreSQL/DuckDB that materializes cohort retention views and RFM customer profiles consumed by the reporting dashboard.",
+        id: "Saya membangun alur kerja dua tahap: skrip validasi Python/Pandas yang menstandardisasi dump CSV faktur mentah dan menandai anomali data, diikuti oleh lapisan SQL analitik di PostgreSQL/DuckDB yang membentuk tampilan retensi kohort dan profil RFM.",
+      },
+      architectureWorkflow: {
+        summary: {
+          en: "Raw invoice ingestion, anomaly isolation, analytical SQL window transformations, and BI reporting.",
+          id: "Ingesti faktur mentah, isolasi anomali, transformasi window SQL analitik, dan pelaporan BI.",
+        },
+        steps: [
+          {
+            stage: "01 / Cleaning",
+            title: {
+              en: "Invoice Hygiene & Return Separation",
+              id: "Pembersihan Faktur & Pemisahan Retur",
+            },
+            detail: {
+              en: "Isolates `C`-prefixed credit notes, removes null customer rows for cohort tracking, and normalizes timestamps.",
+              id: "Mengisolasi nota kredit berawalan `C`, memisahkan baris tanpa ID pelanggan untuk pelacakan kohort, dan menormalisasi waktu.",
+            },
+          },
+          {
+            stage: "02 / SQL Modeling",
+            title: {
+              en: "Cohort & RFM Window Queries",
+              id: "Kueri Window Kohort & RFM",
+            },
+            detail: {
+              en: "Computes first purchase month per customer, period index offsets, and NTILE(5) RFM scores.",
+              id: "Menghitung bulan pembelian pertama per pelanggan, selisih indeks periode, dan skor RFM NTILE(5).",
+            },
+          },
+          {
+            stage: "03 / Reporting",
+            title: {
+              en: "Decision Dashboard",
+              id: "Dashboard Keputusan",
+            },
+            detail: {
+              en: "Visualizes retention heatmaps, net vs. gross revenue after returns, and at-risk high-value segments.",
+              id: "Memvisualisasikan heatmap retensi, pendapatan bersih vs kotor setelah retur, dan segmen bernilai tinggi yang berisiko churn.",
+            },
+          },
+        ],
+      },
+      techStackDetailed: [
+        {
+          layer: "Analytical Engine",
+          items: ["PostgreSQL", "DuckDB", "Advanced SQL (CTEs, Window Functions)"],
+          rationale: {
+            en: "Push set-based cohort aggregations and NTILE window calculations directly to the SQL engine for speed and reproducibility.",
+            id: "Menjalankan agregasi kohort berbasis himpunan dan perhitungan window NTILE langsung di mesin SQL demi kecepatan dan reprodusibilitas.",
+          },
+        },
+        {
+          layer: "Data Preparation",
+          items: ["Python 3.11", "Pandas", "NumPy"],
+          rationale: {
+            en: "Programmatic schema validation, string normalization, and outlier auditing.",
+            id: "Validasi skema terprogram, normalisasi string, dan audit outlier.",
+          },
+        },
+      ],
+      implementation: {
+        narrative: {
+          en: "Below is the core analytical SQL query that assigns each customer to their acquisition month cohort and computes active customer retention percentages across subsequent months.",
+          id: "Berikut adalah kueri SQL analitik inti yang menetapkan setiap pelanggan ke kohort bulan akuisisi mereka dan menghitung persentase retensi pelanggan aktif pada bulan-bulan berikutnya.",
+        },
+        codeTitle: "sql/cohort_retention_matrix.sql",
+        codeLanguage: "sql",
+        codeSnippet: `WITH customer_first_purchase AS (
+    SELECT
+        customer_id,
+        DATE_TRUNC('month', MIN(invoice_timestamp))::date AS cohort_month
+    FROM fct_clean_orders
+    WHERE is_cancelled = FALSE AND customer_id IS NOT NULL
+    GROUP BY customer_id
+),
+monthly_activity AS (
+    SELECT DISTINCT
+        o.customer_id,
+        c.cohort_month,
+        DATE_TRUNC('month', o.invoice_timestamp)::date AS activity_month,
+        (EXTRACT(YEAR FROM AGE(DATE_TRUNC('month', o.invoice_timestamp), c.cohort_month)) * 12
+         + EXTRACT(MONTH FROM AGE(DATE_TRUNC('month', o.invoice_timestamp), c.cohort_month)))::int AS month_number
+    FROM fct_clean_orders o
+    INNER JOIN customer_first_purchase c ON o.customer_id = c.customer_id
+    WHERE o.is_cancelled = FALSE
+)
+SELECT
+    cohort_month,
+    month_number,
+    COUNT(DISTINCT customer_id) AS active_customers,
+    ROUND(
+        100.0 * COUNT(DISTINCT customer_id)
+        / FIRST_VALUE(COUNT(DISTINCT customer_id)) OVER (
+            PARTITION BY cohort_month ORDER BY month_number
+        ),
+        2
+    ) AS retention_rate_pct
+FROM monthly_activity
+GROUP BY cohort_month, month_number
+ORDER BY cohort_month, month_number;`,
+      },
+      challengesAndDecisions: [
+        {
+          challenge: {
+            en: "Handling guest checkouts (null `customer_id`) without distorting overall revenue totals.",
+            id: "Menangani transaksi tamu (`customer_id` kosong) tanpa mendistorsi total pendapatan keseluruhan.",
+          },
+          decision: {
+            en: "Split analytical marts into `fct_store_revenue` (includes guest orders) and `fct_customer_cohorts` (authenticated customers only).",
+            id: "Memisahkan mart analitik menjadi `fct_store_revenue` (termasuk pesanan tamu) dan `fct_customer_cohorts` (khusus pelanggan terautentikasi).",
+          },
+          tradeoff: {
+            en: "Requires clear metric documentation on dashboards so stakeholders understand the denominator of each chart.",
+            id: "Memerlukan dokumentasi metrik yang jelas pada dashboard agar pemangku kepentingan memahami pembagi (denominator) setiap grafik.",
+          },
+        },
+      ],
+      results: {
+        en: [
+          "Quantified the 12.4% discrepancy between gross invoiced sales and net realized revenue after isolating credit notes.",
+          "Identified steepest retention drop-off between Month 0 and Month 1, highlighting the window for post-first-purchase onboarding.",
+          "Isolated top 18% of SKUs generating 80% of net merchandise value.",
+        ],
+        id: [
+          "Mengukur selisih 12,4% antara penjualan kotor tercetak dan pendapatan bersih setelah memisahkan nota kredit.",
+          "Mengidentifikasi penurunan retensi paling tajam antara Bulan 0 dan Bulan 1 sebagai fokus kampanye pasca-pembelian pertama.",
+          "Mengidentifikasi 18% SKU teratas yang menghasilkan 80% nilai bersih penjualan.",
+        ],
+      },
+      whatILearned: {
+        en: "Good data analytics is 70% data hygiene and metric definition. Writing a clear SQL query is only useful after you verify what a row in the source table actually represents in the real world.",
+        id: "Analitik data yang baik adalah 70% kebersihan data dan ketepatan definisi metrik. Menulis kueri SQL yang rapi hanya berguna setelah kita memverifikasi apa arti sebenarnya dari satu baris di tabel sumber.",
+      },
+    },
+  },
+  {
+    slug: "operational-etl-warehouse",
+    index: "PRJ-03",
+    title: {
+      en: "Automated Operational ETL & Dimensional Data Warehouse",
+      id: "Pipeline ETL Operasional & Gudang Data Dimensional",
+    },
+    category: "Data Engineering",
+    secondaryCategories: ["Data Analytics"],
+    contextLabel: {
+      en: "Data Engineering & Dimensional Modeling Project",
+      id: "Proyek Rekayasa Data & Pemodelan Dimensional",
+    },
+    year: "2025",
+    shortDescription: {
+      en: "A batch ELT pipeline that extracts heterogeneous operational records, enforces schema contracts, and builds a Kimball star schema in PostgreSQL.",
+      id: "Pipeline ELT batch yang mengekstrak data operasional heterogen, menegakkan kontrak skema, dan membangun star schema Kimball di PostgreSQL.",
+    },
+    problemSummary: {
+      en: "Reporting queries ran directly against normalized OLTP tables and CSV exports, causing slow joins, inconsistent date formats, and duplicate records.",
+      id: "Kueri pelaporan dijalankan langsung pada tabel OLTP ternormalisasi dan ekspor CSV, menyebabkan join lambat, format tanggal tidak konsisten, dan duplikasi.",
+    },
+    myContribution: {
+      en: "Engineered idempotent Python ingestion scripts, designed staging-to-mart SQL transformations (Bronze/Silver/Gold layers), and implemented automated data quality checks.",
+      id: "Merancang skrip ingesti Python idempoten, menyusun transformasi SQL dari staging ke mart (lapisan Bronze/Silver/Gold), dan mengimplementasikan pemeriksaan kualitas data otomatis.",
+    },
+    technologies: [
+      "Python",
+      "PostgreSQL",
+      "SQL",
+      "dbt (Core Concepts)",
+      "Docker",
+      "GitHub Actions",
+    ],
+    outcomeSummary: {
+      en: "Consolidated 4 disparate source schemas into a unified Star Schema (`fct_operations`, `dim_date`, `dim_entity`, `dim_service`) with automated pre-publish assertions.",
+      id: "Mengkonsolidasikan 4 skema sumber berbeda ke dalam satu Star Schema terpadu (`fct_operations`, `dim_date`, `dim_entity`, `dim_service`) dengan validasi otomatis.",
+    },
+    outcomeVerifiedNote: {
+      en: "Benchmarked locally using Dockerized PostgreSQL pipeline (Independent Engineering Project)",
+      id: "Diukur secara lokal menggunakan pipeline PostgreSQL di dalam Docker (Proyek Rekayasa Mandiri)",
+    },
+    repoUrl: "https://github.com/Yukomyy",
+    diagramType: "etl-warehouse",
+    caseStudy: {
+      overview: {
+        en: "Analytical reporting slows down dramatically when analysts must join 8+ normalized operational tables and manually merge flat files every week. This project implements a structured Medallion / Kimball data warehouse architecture that separates raw ingestion (`raw`), cleaned conformance (`staging`), and business-ready dimensional marts (`mart`).",
+        id: "Pelaporan analitik melambat secara drastis ketika analis harus menggabungkan 8+ tabel operasional ternormalisasi dan menyatukan file CSV secara manual setiap minggu. Proyek ini mengimplementasikan arsitektur gudang data Medallion / Kimball yang memisahkan ingesti mentah (`raw`), pembersihan (`staging`), dan mart dimensional (`mart`).",
+      },
+      problemStatement: {
+        en: "Re-running naive ingestion scripts created duplicate rows whenever a pipeline failed midway, and silent upstream schema changes broke downstream charts without warning.",
+        id: "Menjalankan ulang skrip ingesti naif menciptakan baris duplikat setiap kali pipeline gagal di tengah jalan, dan perubahan skema di hulu merusak laporan hilir tanpa peringatan.",
+      },
+      objectives: {
+        en: [
+          "Ensure every pipeline run is strictly idempotent—re-running the same date partition produces the exact same warehouse state.",
+          "Design a Kimball Star Schema with surrogate keys and Slowly Changing Dimension (SCD Type 2) tracking for historical accuracy.",
+          "Halt pipeline execution automatically if null primary keys, orphan foreign keys, or negative metric values are detected.",
+        ],
+        id: [
+          "Memastikan setiap eksekusi pipeline bersifat idempoten—menjalankan ulang partisi tanggal yang sama menghasilkan state gudang data yang identik.",
+          "Merancang Star Schema Kimball dengan surrogate key dan pelacakan Slowly Changing Dimension (SCD Tipe 2) untuk akurasi historis.",
+          "Menghentikan eksekusi pipeline secara otomatis jika terdeteksi primary key kosong, foreign key yatim, atau nilai metrik negatif.",
+        ],
+      },
+      solution: {
+        en: "I built a containerized Python + PostgreSQL pipeline structured around three schemas (`raw`, `stg`, `mart`). Ingestion loads batch files into staging tables using content hashes, SQL transformation scripts merge records using `INSERT ... ON CONFLICT DO UPDATE`, and a quality-gate runner verifies row counts and constraints.",
+        id: "Saya membangun pipeline Python + PostgreSQL berbasis kontainer yang terstruktur dalam tiga skema (`raw`, `stg`, `mart`). Proses ingesti memuat file batch menggunakan hash konten, skrip transformasi SQL menggabungkan rekaman dengan `INSERT ... ON CONFLICT DO UPDATE`, dan pemeriksa kualitas memverifikasi batasan data.",
+      },
+      architectureWorkflow: {
+        summary: {
+          en: "Three-tier data warehouse pipeline with idempotent upserts and automated quality gates.",
+          id: "Pipeline gudang data tiga lapis dengan upsert idempoten dan gerbang kualitas otomatis.",
+        },
+        steps: [
+          {
+            stage: "01 / Bronze (Raw)",
+            title: {
+              en: "Batch Extract & Hash Tagging",
+              id: "Ekstraksi Batch & Penandaan Hash",
+            },
+            detail: {
+              en: "Loads source CSV/JSON payloads with ingestion timestamps and SHA-256 row hashes.",
+              id: "Memuat payload CSV/JSON sumber beserta waktu ingesti dan hash baris SHA-256.",
+            },
+          },
+          {
+            stage: "02 / Silver (Staging)",
+            title: {
+              en: "Type Casting & Deduplication",
+              id: "Konversi Tipe & Deduplikasi",
+            },
+            detail: {
+              en: "Standardizes UTC timestamps, trims identifiers, and deduplicates using `ROW_NUMBER() OVER (PARTITION BY natural_key)`.",
+              id: "Menstandardisasi waktu UTC, merapikan pengidentifikasi, dan melakukan deduplikasi dengan `ROW_NUMBER()`.",
+            },
+          },
+          {
+            stage: "03 / Gold (Mart)",
+            title: {
+              en: "Dimensional Star Schema & Assertions",
+              id: "Star Schema Dimensional & Validasi",
+            },
+            detail: {
+              en: "Populates `dim_*` and `fct_*` tables and executes post-load SQL assertion checks.",
+              id: "Mengisi tabel `dim_*` dan `fct_*` serta menjalankan pemeriksaan asersi SQL pasca-muat.",
+            },
+          },
+        ],
+      },
+      techStackDetailed: [
+        {
+          layer: "Ingestion & Orchestration",
+          items: ["Python 3.11", "psycopg3", "Pydantic"],
+          rationale: {
+            en: "Strict row-level schema contracts before records enter the database.",
+            id: "Kontrak skema tingkat baris yang ketat sebelum data masuk ke basis data.",
+          },
+        },
+        {
+          layer: "Warehouse & Modeling",
+          items: ["PostgreSQL 16", "Dimensional SQL", "Docker Compose"],
+          rationale: {
+            en: "Reproducible local warehouse environment supporting transactional DDL and window functions.",
+            id: "Lingkungan gudang data lokal yang dapat direproduksi dan mendukung DDL transaksional.",
+          },
+        },
+      ],
+      implementation: {
+        narrative: {
+          en: "To guarantee idempotency when updating the fact table for a given date partition, transformations deduplicate staged records and perform an atomic upsert keyed on the business transaction key.",
+          id: "Untuk menjamin sifat idempoten saat memperbarui tabel fakta pada partisi tanggal tertentu, transformasi melakukan deduplikasi data staging dan menjalankan upsert atomik berdasarkan kunci bisnis.",
+        },
+        codeTitle: "sql/mart/upsert_fct_operations.sql",
+        codeLanguage: "sql",
+        codeSnippet: `INSERT INTO mart.fct_service_operations (
+    operation_natural_key,
+    date_key,
+    entity_sk,
+    service_sk,
+    processing_duration_sec,
+    total_cost_idr,
+    record_hash,
+    updated_at
+)
+SELECT
+    s.operation_id AS operation_natural_key,
+    TO_CHAR(s.completed_at_utc, 'YYYYMMDD')::int AS date_key,
+    de.entity_sk,
+    ds.service_sk,
+    s.processing_duration_sec,
+    s.total_cost_idr,
+    s.record_hash,
+    NOW()
+FROM stg.stg_operations_deduped s
+INNER JOIN mart.dim_entity de
+    ON s.entity_code = de.entity_code AND de.is_current = TRUE
+INNER JOIN mart.dim_service ds
+    ON s.service_code = ds.service_code
+WHERE s.partition_date = :target_date
+ON CONFLICT (operation_natural_key)
+DO UPDATE SET
+    processing_duration_sec = EXCLUDED.processing_duration_sec,
+    total_cost_idr          = EXCLUDED.total_cost_idr,
+    record_hash             = EXCLUDED.record_hash,
+    updated_at              = NOW()
+WHERE mart.fct_service_operations.record_hash <> EXCLUDED.record_hash;`,
+      },
+      challengesAndDecisions: [
+        {
+          challenge: {
+            en: "Handling historical changes when an organizational unit changes its department classification.",
+            id: "Menangani perubahan historis ketika suatu unit organisasi berganti klasifikasi departemen.",
+          },
+          decision: {
+            en: "Modeled `dim_entity` with `valid_from`, `valid_to`, and `is_current` columns (SCD Type 2).",
+            id: "Memodelkan `dim_entity` dengan kolom `valid_from`, `valid_to`, dan `is_current` (SCD Tipe 2).",
+          },
+          tradeoff: {
+            en: "Adds complexity to dimension joins (`BETWEEN valid_from AND valid_to`), but preserves accurate historical attribution.",
+            id: "Menambah kompleksitas pada join dimensi, namun menjaga akurasi atribusi historis.",
+          },
+        },
+      ],
+      results: {
+        en: [
+          "Zero duplicate fact records across repeated backfill tests on identical date partitions.",
+          "Simplified downstream BI queries from 7-table operational joins to single-hop star schema joins.",
+          "Automated detection of schema drift and null key violations prior to mart publication.",
+        ],
+        id: [
+          "Nol duplikasi baris fakta pada pengujian backfill berulang di partisi tanggal yang sama.",
+          "Menyederhanakan kueri BI hilir dari join 7 tabel operasional menjadi join star schema sederhana.",
+          "Deteksi otomatis terhadap pergeseran skema (schema drift) dan pelanggaran kunci kosong sebelum publikasi mart.",
+        ],
+      },
+      whatILearned: {
+        en: "Data engineering is fundamentally about trust and recoverability. Pipelines will eventually encounter malformed input; designing idempotent loads and explicit quality gates makes recovery routine instead of an emergency.",
+        id: "Rekayasa data pada dasarnya adalah tentang kepercayaan dan kemampuan pemulihan. Pipeline pasti akan menemui input yang rusak; merancang pemuatan yang idempoten dan gerbang kualitas eksplisit membuat pemulihan menjadi proses rutin, bukan darurat.",
+      },
+    },
+  },
+  {
+    slug: "churn-demand-forecasting",
+    index: "PRJ-04",
+    title: {
+      en: "Customer Churn & Subscription Retention Modeling",
+      id: "Pemodelan Prediksi Churn & Retensi Pelanggan",
+    },
+    category: "Data Science",
+    secondaryCategories: ["Data Analytics"],
+    contextLabel: {
+      en: "Applied Machine Learning & Statistical Analysis Study",
+      id: "Studi Pembelajaran Mesin Terapan & Analisis Statistik",
+    },
+    year: "2025",
+    shortDescription: {
+      en: "An interpretable classification workflow comparing calibrated Logistic Regression and Gradient Boosted Trees to identify accounts at risk of churn.",
+      id: "Alur kerja klasifikasi yang dapat diinterpretasikan, membandingkan Logistic Regression terkalibrasi dan Gradient Boosted Trees untuk mengidentifikasi akun berisiko churn.",
+    },
+    problemSummary: {
+      en: "Predicting churn with accuracy alone fails on imbalanced datasets and offers retention teams no actionable explanation of why a customer is leaving.",
+      id: "Memprediksi churn hanya dengan metrik akurasi gagal pada dataset tidak seimbang dan tidak memberi penjelasan mengapa pelanggan berhenti.",
+    },
+    myContribution: {
+      en: "Built a leakage-free Scikit-Learn Pipeline, engineered behavioral usage features, tuned decision thresholds for Precision-Recall trade-offs, and extracted feature attributions.",
+      id: "Membangun Pipeline Scikit-Learn bebas kebocoran data, merancang fitur perilaku penggunaan, mengatur ambang keputusan untuk Precision-Recall, dan mengekstrak atribusi fitur.",
+    },
+    technologies: [
+      "Python",
+      "Scikit-Learn",
+      "Pandas",
+      "NumPy",
+      "Statsmodels",
+      "Matplotlib",
+    ],
+    outcomeSummary: {
+      en: "Prioritized Precision-Recall AUC and probability calibration over raw accuracy, producing interpretable risk tiers for retention intervention.",
+      id: "Memprioritaskan Precision-Recall AUC dan kalibrasi probabilitas di atas akurasi mentah, menghasilkan tingkatan risiko yang dapat diinterpretasikan.",
+    },
+    outcomeVerifiedNote: {
+      en: "Evaluated via 5-fold stratified cross-validation on benchmark Telco Customer Churn dataset",
+      id: "Dievaluasi melalui validasi silang berstrata 5-fold pada dataset benchmark Telco Customer Churn",
+    },
+    repoUrl: "https://github.com/Yukomyy",
+    diagramType: "churn-ml-pipeline",
+    caseStudy: {
+      overview: {
+        en: "In subscription businesses, retaining an existing customer is significantly less expensive than acquiring a new one—yet contacting every customer with discounts wastes budget. This study frames churn prediction as a cost-sensitive decision problem rather than a blind leaderboard competition.",
+        id: "Dalam bisnis berlangganan, mempertahankan pelanggan lama jauh lebih hemat dibandingkan mengakuisisi pelanggan baru—namun memberikan diskon ke semua pelanggan justru membuang anggaran. Studi ini membingkai prediksi churn sebagai masalah keputusan yang peka biaya.",
+      },
+      problemStatement: {
+        en: "With ~26.5% baseline churn, a naive classifier achieves 73.5% accuracy by predicting nobody churns. Furthermore, black-box predictions without calibrated probabilities cannot be ranked reliably by customer success teams.",
+        id: "Dengan tingkat churn dasar ~26,5%, model naif dapat mencapai akurasi 73,5% hanya dengan menebak tidak ada pelanggan yang churn. Selain itu, prediksi kotak hitam tanpa probabilitas terkalibrasi tidak dapat diurutkan secara andal oleh tim retensi.",
+      },
+      objectives: {
+        en: [
+          "Prevent data leakage by encapsulating all imputation, scaling, and encoding inside a Scikit-Learn `ColumnTransformer` fit strictly on training folds.",
+          "Compare interpretable regularized Logistic Regression against HistGradientBoostingClassifier using ROC-AUC and PR-AUC.",
+          "Select an operating probability threshold based on estimated retention campaign cost vs. customer lifetime value.",
+        ],
+        id: [
+          "Mencegah kebocoran data (data leakage) dengan membungkus seluruh imputasi, penskalaan, dan encoding di dalam `ColumnTransformer` Scikit-Learn.",
+          "Membandingkan Logistic Regression teregulasi yang mudah diinterpretasikan dengan HistGradientBoostingClassifier menggunakan ROC-AUC dan PR-AUC.",
+          "Memilih ambang probabilitas operasional berdasarkan estimasi biaya kampanye retensi terhadap nilai umur pelanggan (LTV).",
+        ],
+      },
+      solution: {
+        en: "I structured a reproducible modeling pipeline in Python. After exploratory analysis and collinearity checks (VIF), I engineered tenure-normalized spend features, evaluated stratified cross-validation metrics, and calibrated predicted probabilities so accounts can be bucketed into High, Medium, and Low risk tiers.",
+        id: "Saya menyusun pipeline pemodelan yang dapat direproduksi di Python. Setelah analisis eksplorasi dan pemeriksaan multikolinearitas (VIF), saya merancang fitur pengeluaran ternormalisasi masa langganan, mengevaluasi validasi silang berstrata, dan mengkalibrasi probabilitas prediksi.",
+      },
+      architectureWorkflow: {
+        summary: {
+          en: "Leakage-safe preprocessing, stratified cross-validation, probability calibration, and threshold optimization.",
+          id: "Prapemrosesan aman dari kebocoran, validasi silang berstrata, kalibrasi probabilitas, dan optimasi ambang batas.",
+        },
+        steps: [
+          {
+            stage: "01 / Feature Pipeline",
+            title: {
+              en: "ColumnTransformer & Domain Features",
+              id: "ColumnTransformer & Fitur Domain",
+            },
+            detail: {
+              en: "Computes contract commitment ratios, service density, and one-hot / standard scaling within CV folds.",
+              id: "Menghitung rasio komitmen kontrak, kepadatan layanan, serta one-hot / standard scaling di dalam lipatan CV.",
+            },
+          },
+          {
+            stage: "02 / Modeling",
+            title: {
+              en: "Baseline vs. Gradient Boosting",
+              id: "Baseline vs. Gradient Boosting",
+            },
+            detail: {
+              en: "Evaluates L2 Logistic Regression and HistGradientBoosting across 5 stratified folds.",
+              id: "Mengevaluasi L2 Logistic Regression dan HistGradientBoosting di 5 lipatan berstrata.",
+            },
+          },
+          {
+            stage: "03 / Calibration",
+            title: {
+              en: "Cost-Sensitive Thresholding",
+              id: "Penentuan Ambang Peka Biaya",
+            },
+            detail: {
+              en: "Maps calibrated churn probabilities to actionable outreach tiers with top driver explanations.",
+              id: "Memetakan probabilitas churn terkalibrasi ke tingkatan intervensi beserta penjelasan faktor pendorong utama.",
+            },
+          },
+        ],
+      },
+      techStackDetailed: [
+        {
+          layer: "Modeling & Evaluation",
+          items: ["Scikit-Learn", "Statsmodels", "NumPy", "Pandas"],
+          rationale: {
+            en: "Composable `Pipeline` API guarantees identical feature transformations between training and inference.",
+            id: "API `Pipeline` yang modular menjamin transformasi fitur yang identik antara pelatihan dan inferensi.",
+          },
+        },
+      ],
+      implementation: {
+        narrative: {
+          en: "By combining preprocessing and classification in a single `Pipeline`, cross-validation never leaks validation distribution statistics into the training step.",
+          id: "Dengan menggabungkan prapemrosesan dan klasifikasi dalam satu `Pipeline`, validasi silang tidak pernah membocorkan statistik distribusi validasi ke tahap pelatihan.",
+        },
+        codeTitle: "src/train_churn_pipeline.py",
+        codeLanguage: "python",
+        codeSnippet: `from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.impute import SimpleImputer
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import StratifiedKFold, cross_validate
+
+numeric_pipe = Pipeline([
+    ("imputer", SimpleImputer(strategy="median")),
+    ("scaler", StandardScaler()),
+])
+
+categorical_pipe = Pipeline([
+    ("imputer", SimpleImputer(strategy="most_frequent")),
+    ("ohe", OneHotEncoder(handle_unknown="ignore", drop="if_binary")),
+])
+
+preprocessor = ColumnTransformer([
+    ("num", numeric_pipe, numeric_features),
+    ("cat", categorical_pipe, categorical_features),
+])
+
+clf_pipeline = Pipeline([
+    ("prep", preprocessor),
+    ("model", LogisticRegression(C=0.5, class_weight="balanced", max_iter=1000)),
+])
+
+cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+scores = cross_validate(
+    clf_pipeline, X, y, cv=cv,
+    scoring={"roc_auc": "roc_auc", "pr_auc": "average_precision"}
+)`,
+      },
+      challengesAndDecisions: [
+        {
+          challenge: {
+            en: "Complex ensemble models offered only marginal ROC-AUC gains (~0.01) over regularized Logistic Regression on this tabular structure.",
+            id: "Model ensemble yang kompleks hanya memberikan peningkatan ROC-AUC tipis (~0,01) dibandingkan Logistic Regression teregulasi pada struktur tabel ini.",
+          },
+          decision: {
+            en: "Selected calibrated Logistic Regression as the primary recommendation model while keeping Gradient Boosting as a benchmark comparison.",
+            id: "Memilih Logistic Regression terkalibrasi sebagai model rekomendasi utama sembari mempertahankan Gradient Boosting sebagai pembanding.",
+          },
+          tradeoff: {
+            en: "Trades a fraction of non-linear capacity for transparent odds-ratio coefficients that business stakeholders can audit.",
+            id: "Menukar sedikit kapasitas non-linear demi koefisien odds-ratio yang transparan dan mudah diaudit oleh pemangku kepentingan.",
+          },
+        },
+      ],
+      results: {
+        en: [
+          "Consistent ~0.84 ROC-AUC across 5-fold stratified cross-validation with zero train-test preprocessing leakage.",
+          "Identified month-to-month contract structure, fiber-optic price sensitivity, and early tenure (<6 months) as primary churn drivers.",
+          "Produced an exportable scoring script that outputs customer ID, calibrated probability, risk bucket, and top 3 risk factors.",
+        ],
+        id: [
+          "Konsisten mencapai ~0,84 ROC-AUC pada validasi silang berstrata 5-fold tanpa kebocoran prapemrosesan train-test.",
+          "Mengidentifikasi struktur kontrak bulanan, sensitivitas harga, dan masa langganan awal (<6 bulan) sebagai pendorong utama churn.",
+          "Menghasilkan skrip penilaian yang mengekspor ID pelanggan, probabilitas terkalibrasi, kategori risiko, dan 3 faktor risiko teratas.",
+        ],
+      },
+      whatILearned: {
+        en: "In applied data science, a simpler, well-calibrated model with clean feature engineering often beats an opaque model—especially when a human team has to act on the predictions.",
+        id: "Dalam sains data terapan, model yang lebih sederhana dan terkalibrasi dengan baik serta didukung rekayasa fitur yang bersih sering kali lebih bernilai daripada model rumit yang sulit dijelaskan kepada tim operasional.",
+      },
+    },
+  },
+  {
+    slug: "campus-lab-booking-platform",
+    index: "PRJ-05",
+    title: {
+      en: "Campus Lab & Shared Facility Scheduling Platform",
+      id: "Platform Penjadwalan Laboratorium & Fasilitas Kampus",
+    },
+    category: "Web Development",
+    secondaryCategories: ["Software Engineering"],
+    contextLabel: {
+      en: "Full-Stack Web Engineering Project",
+      id: "Proyek Rekayasa Web Full-Stack",
+    },
+    year: "2025",
+    shortDescription: {
+      en: "A responsive web application for reserving university laboratories and equipment with conflict-free time-slot validation and coordinator approval workflows.",
+      id: "Aplikasi web responsif untuk peminjaman laboratorium dan peralatan kampus dengan validasi slot waktu bebas bentrok serta alur persetujuan koordinator.",
+    },
+    problemSummary: {
+      en: "Student organizations and lab assistants coordinated room bookings via chat apps and static calendars, frequently resulting in double-booked rooms.",
+      id: "Organisasi mahasiswa dan asisten laboratorium mengoordinasikan peminjaman ruangan melalui aplikasi pesan dan kalender statis yang sering memicu jadwal bentrok.",
+    },
+    myContribution: {
+      en: "Built the full-stack Next.js application, implemented PostgreSQL range overlap constraints (`tsrange`) to prevent double-booking, and designed the mobile-first schedule explorer.",
+      id: "Membangun aplikasi full-stack Next.js, mengimplementasikan batasan tumpang-tindih rentang waktu PostgreSQL (`tsrange`) untuk mencegah jadwal ganda, dan merancang antarmuka jadwal responsif.",
+    },
+    technologies: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "REST API",
+    ],
+    outcomeSummary: {
+      en: "Guaranteed zero overlapping reservations at the database level and streamlined booking requests from submission to coordinator approval.",
+      id: "Menjamin nol jadwal peminjaman yang tumpang-tindih di tingkat basis data dan menyederhanakan alur pengajuan hingga persetujuan koordinator.",
+    },
+    outcomeVerifiedNote: {
+      en: "Academic / Campus Utility Prototype (Editable for deployment metrics)",
+      id: "Prototipe Utilitas Kampus / Akademik (Dapat disesuaikan dengan metrik aktual)",
+    },
+    repoUrl: "https://github.com/Yukomyy",
+    liveUrl: "https://yukomyy.github.io",
+    diagramType: "booking-system",
+    caseStudy: {
+      overview: {
+        en: "Scheduling shared physical resources (computer labs, seminar rooms, and hardware kits) requires strict temporal validation. This full-stack web platform replaces ad-hoc messaging forms with a centralized availability calendar, automated conflict detection, and status tracking.",
+        id: "Penjadwalan fasilitas fisik bersama (laboratorium komputer, ruang seminar, dan perangkat keras) membutuhkan validasi waktu yang ketat. Platform web full-stack ini menggantikan formulir manual dengan kalender ketersediaan terpusat, deteksi bentrok otomatis, dan pelacakan status.",
+      },
+      problemStatement: {
+        en: "Checking time-slot overlaps only in frontend JavaScript fails when two users submit overlapping intervals simultaneously or when partial-hour bookings overlap existing reservations.",
+        id: "Memeriksa tumpang-tindih slot waktu hanya di JavaScript frontend gagal ketika dua pengguna mengirim interval waktu yang beririsan secara bersamaan.",
+      },
+      objectives: {
+        en: [
+          "Enforce conflict-free time intervals in PostgreSQL so overlapping approved bookings are mathematically impossible.",
+          "Deliver a fast, accessible timetable interface usable on both desktop monitors and mobile devices.",
+          "Provide clear status transitions (`Pending`, `Approved`, `Rejected`, `Cancelled`) with conflict previews for lab coordinators.",
+        ],
+        id: [
+          "Menegakkan interval waktu bebas bentrok di PostgreSQL sehingga jadwal yang disetujui tidak mungkin saling tumpang-tindih.",
+          "Menghadirkan antarmuka jadwal yang cepat dan aksesibel baik di layar desktop maupun perangkat seluler.",
+          "Menyediakan transisi status yang jelas (`Menunggu`, `Disetujui`, `Ditolak`, `Dibatalkan`) beserta pratinjau konflik bagi koordinator lab.",
+        ],
+      },
+      solution: {
+        en: "I combined a clean Next.js + TypeScript frontend with a PostgreSQL backend utilizing `tstzrange` interval checks and GiST exclusion constraints. Users can filter labs by capacity and equipment, inspect live daily/weekly grids, and submit structured reservation requests.",
+        id: "Saya menggabungkan frontend Next.js + TypeScript yang bersih dengan backend PostgreSQL yang memanfaatkan pemeriksaan interval `tstzrange` serta batasan eksklusi GiST. Pengguna dapat memfilter laboratorium berdasarkan kapasitas dan peralatan serta mengajukan permohonan terjadwal.",
+      },
+      architectureWorkflow: {
+        summary: {
+          en: "Client schedule grid, typed API validation, and PostgreSQL temporal exclusion constraints.",
+          id: "Grid jadwal klien, validasi API bertipe, dan batasan eksklusi temporal PostgreSQL.",
+        },
+        steps: [
+          {
+            stage: "01 / UI Layer",
+            title: {
+              en: "Interactive Timetable & Filter Bar",
+              id: "Jadwal Interaktif & Bar Filter",
+            },
+            detail: {
+              en: "Displays room occupancy blocks, equipment tags, and accessible reservation modals.",
+              id: "Menampilkan blok keterisian ruangan, tag fasilitas, dan modal peminjaman yang aksesibel.",
+            },
+          },
+          {
+            stage: "02 / API Layer",
+            title: {
+              en: "Interval & Policy Validation",
+              id: "Validasi Interval & Kebijakan",
+            },
+            detail: {
+              en: "Verifies operating hours, maximum booking duration, and user role permissions.",
+              id: "Memverifikasi jam operasional, durasi peminjaman maksimum, dan izin peran pengguna.",
+            },
+          },
+          {
+            stage: "03 / Database",
+            title: {
+              en: "GiST Range Overlap Guard",
+              id: "Pelindung Tumpang-Tindih Rentang GiST",
+            },
+            detail: {
+              en: "Uses PostgreSQL `&&` range overlap operator and exclusion constraints to block double bookings.",
+              id: "Menggunakan operator tumpang-tindih rentang `&&` PostgreSQL dan batasan eksklusi untuk memblokir jadwal ganda.",
+            },
+          },
+        ],
+      },
+      techStackDetailed: [
+        {
+          layer: "Frontend & Routing",
+          items: ["Next.js", "React 19", "TypeScript", "Tailwind CSS"],
+          rationale: {
+            en: "Fast server-rendered initial views with responsive client filtering and keyboard-accessible forms.",
+            id: "Tampilan awal server-rendered yang cepat dengan pemfilteran klien responsif dan form yang ramah keyboard.",
+          },
+        },
+        {
+          layer: "Database",
+          items: ["PostgreSQL", "btree_gist Extension"],
+          rationale: {
+            en: "Native temporal range types (`tstzrange`) eliminate off-by-one boundary bugs in scheduling queries.",
+            id: "Tipe rentang waktu bawaan (`tstzrange`) menghilangkan bug batas waktu pada kueri penjadwalan.",
+          },
+        },
+      ],
+      implementation: {
+        narrative: {
+          en: "Using PostgreSQL's `btree_gist` extension, the database itself rejects any attempt to approve two reservations for the same room whose `[start_time, end_time)` intervals overlap.",
+          id: "Dengan ekstensi `btree_gist` di PostgreSQL, basis data secara langsung menolak upaya menyetujui dua peminjaman pada ruangan yang sama jika interval `[start_time, end_time)` saling beririsan.",
+        },
+        codeTitle: "sql/migrations/002_booking_exclusion_constraint.sql",
+        codeLanguage: "sql",
+        codeSnippet: `CREATE EXTENSION IF NOT EXISTS btree_gist;
+
+CREATE TABLE room_reservations (
+    reservation_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    room_id        UUID NOT NULL REFERENCES rooms(room_id),
+    requester_id   UUID NOT NULL REFERENCES users(user_id),
+    purpose_title  TEXT NOT NULL,
+    time_slot      TSTZRANGE NOT NULL,
+    status         TEXT NOT NULL CHECK (status IN ('PENDING', 'APPROVED', 'REJECTED', 'CANCELLED')),
+    created_at     TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+
+    -- Prevent any two APPROVED reservations for the same room from overlapping
+    CONSTRAINT no_overlapping_approved_bookings
+    EXCLUDE USING gist (
+        room_id WITH =,
+        time_slot WITH &&
+    ) WHERE (status = 'APPROVED')
+);`,
+      },
+      challengesAndDecisions: [
+        {
+          challenge: {
+            en: "Allowing multiple pending requests for the same slot while preventing multiple approved bookings.",
+            id: "Mengizinkan beberapa permohonan berstatus menunggu pada slot yang sama sembari mencegah persetujuan ganda.",
+          },
+          decision: {
+            en: "Used a partial GiST exclusion constraint (`WHERE (status = 'APPROVED')`) paired with automatic conflict warnings on pending items.",
+            id: "Menggunakan batasan eksklusi GiST parsial (`WHERE (status = 'APPROVED')`) yang dipadukan dengan peringatan konflik otomatis pada permohonan yang masih menunggu.",
+          },
+          tradeoff: {
+            en: "Coordinators can review competing requests before approving one, while the database guarantees final consistency.",
+            id: "Koordinator dapat meninjau permohonan yang bersaing sebelum menyetujui salah satu, sementara basis data menjamin konsistensi akhir.",
+          },
+        },
+      ],
+      results: {
+        en: [
+          "100% prevention of overlapping approved room reservations under concurrent submission tests.",
+          "Responsive timetable view usable on mobile phones for quick hallway room checks.",
+          "Clear audit history of reservation approvals and cancellations.",
+        ],
+        id: [
+          "Pencegahan 100% terhadap jadwal ruangan disetujui yang saling bentrok pada pengujian bersamaan.",
+          "Tampilan jadwal responsif yang nyaman diakses melalui ponsel untuk pengecekan ruangan secara cepat.",
+          "Riwayat audit persetujuan dan pembatalan peminjaman yang jelas.",
+        ],
+      },
+      whatILearned: {
+        en: "Date and time-range logic is notoriously error-prone when written as nested `if/else` statements. Leveraging native interval types (`[)` half-open ranges) simplifies both backend queries and UI rendering.",
+        id: "Logika tanggal dan rentang waktu sangat rentan terhadap bug jika ditulis sebagai pernyataan `if/else` bersarang. Memanfaatkan tipe interval bawaan (`[)` rentang setengah terbuka) menyederhanakan kueri backend maupun tampilan UI.",
+      },
+    },
+  },
+  {
+    slug: "financial-logistics-reporting",
+    index: "PRJ-06",
+    title: {
+      en: "Multi-Source Operational Cost & Logistics Reporting Mart",
+      id: "Mart Pelaporan Biaya Operasional & Logistik Multi-Sumber",
+    },
+    category: "Data Analytics",
+    secondaryCategories: ["Data Engineering", "Web Development"],
+    contextLabel: {
+      en: "Information Systems Decision Support Project",
+      id: "Proyek Sistem Pendukung Keputusan Informasi",
+    },
+    year: "2024",
+    shortDescription: {
+      en: "A unified reporting pipeline and web dashboard reconciling shipment delivery SLA performance against regional freight cost variances.",
+      id: "Pipeline pelaporan terpadu dan dashboard web yang merekonsiliasi kinerja SLA pengiriman logistik terhadap varians biaya pengiriman per wilayah.",
+    },
+    problemSummary: {
+      en: "Logistics dispatch logs and finance carrier invoices used different route codes and granularity, making per-shipment cost and SLA analysis tedious.",
+      id: "Log pengiriman logistik dan faktur biaya ekspedisi menggunakan kode rute serta granularitas yang berbeda, sehingga analisis biaya dan SLA per pengiriman sulit dilakukan.",
+    },
+    myContribution: {
+      en: "Designed the cross-source mapping tables in SQL, wrote automated reconciliation scripts in Python, and built a clean Next.js KPI exploration interface.",
+      id: "Merancang tabel pemetaan lintas sumber di SQL, menulis skrip rekonsiliasi otomatis dengan Python, dan membangun antarmuka eksplorasi KPI menggunakan Next.js.",
+    },
+    technologies: [
+      "SQL",
+      "Python",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "PostgreSQL",
+    ],
+    outcomeSummary: {
+      en: "Standardized shipment SLA tracking and freight cost-per-kg variance reporting across regional routes in a single auditable view.",
+      id: "Menstandardisasi pelacakan SLA pengiriman dan pelaporan varians biaya per kg lintas rute regional dalam satu tampilan yang dapat diaudit.",
+    },
+    outcomeVerifiedNote: {
+      en: "Information Systems Case Study Prototype (Editable for custom operational metrics)",
+      id: "Prototipe Studi Kasus Sistem Informasi (Dapat disesuaikan untuk metrik operasional aktual)",
+    },
+    repoUrl: "https://github.com/Yukomyy",
+    diagramType: "financial-mart",
+    caseStudy: {
+      overview: {
+        en: "Operational managers often look at delivery speed while finance teams look at monthly freight bills—rarely in the same system. This project bridges those two perspectives by reconciling shipment dispatch milestones with carrier billing lines into a unified decision-support interface.",
+        id: "Manajer operasional sering berfokus pada kecepatan pengiriman sementara tim keuangan melihat tagihan bulanan ekspedisi—jarang berada dalam satu sistem yang sama. Proyek ini menjembatani kedua perspektif tersebut dengan merekonsiliasi log pengiriman dan baris tagihan ekspedisi ke dalam satu antarmuka pendukung keputusan.",
+      },
+      problemStatement: {
+        en: "Carrier invoices billed at the consolidated manifest level while warehouse logs tracked individual waybills, preventing straightforward joins to calculate true cost per delivered order.",
+        id: "Faktur ekspedisi ditagihkan pada tingkat manifes gabungan sementara log gudang melacak resi individu, sehingga menghambat join langsung untuk menghitung biaya riil per pesanan.",
+      },
+      objectives: {
+        en: [
+          "Allocate manifest-level freight charges proportionally across constituent waybills by chargeable weight.",
+          "Flag SLA breaches (promised delivery date vs. actual proof-of-delivery timestamp) alongside cost overruns.",
+          "Present actionable route-level performance tables without visual clutter.",
+        ],
+        id: [
+          "Mengalokasikan biaya pengiriman tingkat manifes secara proporsional ke setiap resi berdasarkan berat kena biaya.",
+          "Menandai pelanggaran SLA (tanggal janji kirim vs. waktu bukti diterima aktual) berdampingan dengan pembengkakan biaya.",
+          "Menyajikan tabel kinerja tingkat rute yang mudah ditindaklanjuti tanpa elemen visual yang berlebihan.",
+        ],
+      },
+      solution: {
+        en: "I created a SQL reconciliation view that allocates manifest costs by weight ratio, flags unmatched waybills in an exception table, and surfaces route-level SLA and unit-cost metrics in a fast tabular web interface.",
+        id: "Saya membuat view rekonsiliasi SQL yang mengalokasikan biaya manifes berdasarkan rasio berat, menandai resi yang belum cocok di tabel pengecualian, serta menampilkan metrik SLA dan biaya unit per rute pada antarmuka web tabular.",
+      },
+      architectureWorkflow: {
+        summary: {
+          en: "Cross-source entity resolution, proportional cost allocation in SQL, and tabular KPI interface.",
+          id: "Resolusi entitas lintas sumber, alokasi biaya proporsional di SQL, dan antarmuka KPI tabular.",
+        },
+        steps: [
+          {
+            stage: "01 / Reconciliation",
+            title: {
+              en: "Waybill-to-Manifest Matching",
+              id: "Pencocokan Resi ke Manifes",
+            },
+            detail: {
+              en: "Matches dispatch logs with carrier billing manifests and isolates unmatched records for review.",
+              id: "Mencocokkan log pengiriman dengan manifes tagihan ekspedisi serta mengisolasi catatan yang belum cocok untuk ditinjau.",
+            },
+          },
+          {
+            stage: "02 / Allocation",
+            title: {
+              en: "Weight-Proportional Cost Split",
+              id: "Pembagian Biaya Proporsional Berat",
+            },
+            detail: {
+              en: "Uses window functions (`SUM(weight_kg) OVER (PARTITION BY manifest_id)`) to allocate exact freight costs.",
+              id: "Menggunakan window function (`SUM(weight_kg) OVER (PARTITION BY manifest_id)`) untuk mengalokasikan biaya secara presisi.",
+            },
+          },
+          {
+            stage: "03 / Presentation",
+            title: {
+              en: "Route SLA & Variance Explorer",
+              id: "Eksplorasi SLA & Varians Rute",
+            },
+            detail: {
+              en: "Filterable route matrix showing on-time percentage, average transit hours, and cost variance.",
+              id: "Matriks rute yang dapat difilter untuk menampilkan persentase tepat waktu, rata-rata jam transit, dan varians biaya.",
+            },
+          },
+        ],
+      },
+      techStackDetailed: [
+        {
+          layer: "Data & SQL Layer",
+          items: ["PostgreSQL", "Analytical SQL", "Python"],
+          rationale: {
+            en: "Window-based proportional allocation preserves exact invoice totals down to the cent/rupiah.",
+            id: "Alokasi proporsional berbasis window menjaga keakuratan total faktur hingga satuan terkecil.",
+          },
+        },
+        {
+          layer: "Reporting UI",
+          items: ["Next.js", "TypeScript", "Tailwind CSS"],
+          rationale: {
+            en: "Clean editorial tables and CSV export functionality for operational reviews.",
+            id: "Tabel editorial yang bersih dan fitur ekspor CSV untuk tinjauan operasional.",
+          },
+        },
+      ],
+      implementation: {
+        narrative: {
+          en: "Proportional cost allocation is handled in SQL using partitioned window sums so that the sum of allocated waybill costs equals the exact carrier manifest invoice total.",
+          id: "Alokasi biaya proporsional ditangani di SQL menggunakan penjumlahan window terpartisi sehingga jumlah biaya resi yang dialokasikan sama persis dengan total faktur manifes.",
+        },
+        codeTitle: "sql/views/vw_allocated_shipment_costs.sql",
+        codeLanguage: "sql",
+        codeSnippet: `CREATE OR REPLACE VIEW vw_allocated_shipment_costs AS
+SELECT
+    w.waybill_id,
+    w.manifest_id,
+    w.origin_hub,
+    w.destination_zone,
+    w.chargeable_weight_kg,
+    m.total_manifest_cost_idr,
+    ROUND(
+        m.total_manifest_cost_idr * (
+            w.chargeable_weight_kg
+            / NULLIF(SUM(w.chargeable_weight_kg) OVER (PARTITION BY w.manifest_id), 0)
+        ),
+        2
+    ) AS allocated_freight_cost_idr,
+    (w.delivered_at <= w.promised_sla_at) AS is_on_time_sla
+FROM waybill_dispatches w
+INNER JOIN carrier_manifest_invoices m
+    ON w.manifest_id = m.manifest_id;`,
+      },
+      challengesAndDecisions: [
+        {
+          challenge: {
+            en: "Rounding discrepancies when splitting a manifest invoice across dozens of small parcels.",
+            id: "Selisih pembulatan ketika membagi satu faktur manifes ke puluhan paket kecil.",
+          },
+          decision: {
+            en: "Retained full numeric precision in intermediate analytical views and applied rounding only at the presentation aggregation layer.",
+            id: "Mempertahankan presisi numerik penuh pada view analitik perantara dan menerapkan pembulatan hanya pada lapisan agregasi tampilan.",
+          },
+          tradeoff: {
+            en: "Ensures finance roll-ups reconcile 100% with general ledger invoice totals.",
+            id: "Memastikan rekapitulasi keuangan cocok 100% dengan total faktur buku besar.",
+          },
+        },
+      ],
+      results: {
+        en: [
+          "Unified finance billing and logistics SLA metrics into a single queryable analytical view.",
+          "Isolated underperforming carrier routes where high cost per kg coincided with frequent SLA delays.",
+          "Provided immediate exception reporting for unbilled or unmatched waybills.",
+        ],
+        id: [
+          "Menyatukan metrik tagihan keuangan dan SLA logistik ke dalam satu view analitik yang siap dikueri.",
+          "Mengidentifikasi rute ekspedisi berkinerja rendah di mana biaya tinggi per kg bertepatan dengan keterlambatan SLA.",
+          "Menyediakan laporan pengecualian langsung untuk resi yang belum tertagih atau belum cocok.",
+        ],
+      },
+      whatILearned: {
+        en: "Information Systems projects succeed when they respect both operational reality (how packages move) and financial reality (how invoices are billed). Bridging that grain mismatch in SQL is one of the highest-leverage skills in data work.",
+        id: "Proyek Sistem Informasi berhasil ketika menghormati realitas operasional (bagaimana barang bergerak) sekaligus realitas keuangan (bagaimana faktur ditagihkan). Menjembatani perbedaan granularitas tersebut di SQL adalah keterampilan yang sangat bernilai.",
+      },
+    },
+  },
+];
+
+export const SKILL_GROUPS: SkillGroup[] = [
+  {
+    id: "software-development",
+    index: "01",
+    title: {
+      en: "Software Development",
+      id: "Pengembangan Perangkat Lunak",
+    },
+    description: {
+      en: "Languages, backend architecture, and frontend engineering tools used to build maintainable applications.",
+      id: "Bahasa pemrograman, arsitektur backend, dan perangkat rekayasa frontend untuk membangun aplikasi yang mudah dipelihara.",
+    },
+    subgroups: [
+      {
+        name: { en: "Programming Languages", id: "Bahasa Pemrograman" },
+        items: [
+          { name: "TypeScript", level: "Primary" },
+          { name: "JavaScript (ES6+)", level: "Primary" },
+          { name: "Python", level: "Primary" },
+          { name: "SQL", level: "Primary" },
+          { name: "Java (OOP Fundamentals)", level: "Working" },
+        ],
+      },
+      {
+        name: { en: "Backend Development", id: "Pengembangan Backend" },
+        items: [
+          { name: "Node.js", level: "Primary" },
+          { name: "RESTful API Design", level: "Primary" },
+          { name: "Relational Schema Modeling (3NF)", level: "Primary" },
+          { name: "Prisma / Drizzle ORM", level: "Working" },
+          { name: "Authentication & RBAC", level: "Working" },
+        ],
+      },
+      {
+        name: { en: "Frontend Development", id: "Pengembangan Frontend" },
+        items: [
+          { name: "Semantic HTML5 & Accessibility", level: "Primary" },
+          { name: "CSS3 & Responsive Grid Systems", level: "Primary" },
+          { name: "State Management & Forms", level: "Primary" },
+        ],
+      },
+      {
+        name: { en: "Frameworks & Libraries", id: "Framework & Pustaka" },
+        items: [
+          { name: "React", level: "Primary" },
+          { name: "Next.js (App Router)", level: "Primary" },
+          { name: "Tailwind CSS", level: "Primary" },
+          { name: "Express / FastAPI", level: "Working" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "data-systems",
+    index: "02",
+    title: {
+      en: "Data Analytics, Engineering & Science",
+      id: "Analitik, Rekayasa & Sains Data",
+    },
+    description: {
+      en: "Querying, transforming, visualizing, and modeling structured datasets for operational and analytical use cases.",
+      id: "Kueri, transformasi, visualisasi, dan pemodelan dataset terstruktur untuk kebutuhan operasional maupun analitik.",
+    },
+    subgroups: [
+      {
+        name: { en: "SQL & Querying", id: "SQL & Kueri Analitik" },
+        items: [
+          { name: "Complex Joins & CTEs", level: "Primary" },
+          { name: "Window Functions (RANK, LAG, NTILE)", level: "Primary" },
+          { name: "Query Indexing & Execution Plans", level: "Working" },
+        ],
+      },
+      {
+        name: { en: "Data Analysis & Processing", id: "Analisis & Pemrosesan Data" },
+        items: [
+          { name: "Pandas & NumPy", level: "Primary" },
+          { name: "Exploratory Data Analysis (EDA)", level: "Primary" },
+          { name: "Cohort & RFM Analysis", level: "Primary" },
+          { name: "Excel (PowerQuery & Pivot Tables)", level: "Primary" },
+        ],
+      },
+      {
+        name: { en: "Data Visualization & BI", id: "Visualisasi Data & BI" },
+        items: [
+          { name: "Looker Studio", level: "Primary" },
+          { name: "Power BI / Tableau Fundamentals", level: "Working" },
+          { name: "Matplotlib & Seaborn", level: "Working" },
+        ],
+      },
+      {
+        name: { en: "Data Pipelines & Warehousing", id: "Pipeline & Gudang Data" },
+        items: [
+          { name: "Batch ETL / ELT Scripting", level: "Working" },
+          { name: "Dimensional Modeling (Star Schema)", level: "Working" },
+          { name: "dbt (Core Concepts)", level: "Learning" },
+          { name: "DuckDB", level: "Working" },
+        ],
+      },
+      {
+        name: { en: "Machine Learning", id: "Pembelajaran Mesin (ML)" },
+        items: [
+          { name: "Scikit-Learn Pipelines", level: "Working" },
+          { name: "Classification & Regression Baselines", level: "Working" },
+          { name: "Cross-Validation & Metric Calibration", level: "Learning" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "infrastructure-tools",
+    index: "03",
+    title: {
+      en: "Infrastructure & Engineering Tools",
+      id: "Infrastruktur & Perangkat Rekayasa",
+    },
+    description: {
+      en: "Databases, version control, containerization, and deployment workflows supporting reliable software delivery.",
+      id: "Basis data, kontrol versi, kontainerisasi, dan alur deployment yang mendukung pengiriman perangkat lunak yang andal.",
+    },
+    subgroups: [
+      {
+        name: { en: "Databases", id: "Basis Data" },
+        items: [
+          { name: "PostgreSQL", level: "Primary" },
+          { name: "MySQL / MariaDB", level: "Working" },
+          { name: "SQLite / DuckDB", level: "Working" },
+        ],
+      },
+      {
+        name: { en: "Git, CI/CD & Containers", id: "Git, CI/CD & Kontainer" },
+        items: [
+          { name: "Git & GitHub Workflows", level: "Primary" },
+          { name: "GitHub Actions (CI/CD)", level: "Working" },
+          { name: "Docker & Docker Compose", level: "Working" },
+        ],
+      },
+      {
+        name: { en: "Development & Deployment", id: "Pengembangan & Deployment" },
+        items: [
+          { name: "VS Code & Linux CLI / WSL", level: "Primary" },
+          { name: "Jupyter Lab", level: "Primary" },
+          { name: "GitHub Pages / Vercel / Railway", level: "Primary" },
+        ],
+      },
+    ],
+  },
+];
+
+export const TIMELINE_ENTRIES: TimelineEntry[] = [
+  {
+    id: "edu-is",
+    type: "Education",
+    typeLabel: {
+      en: "Education",
+      id: "Pendidikan",
+    },
+    organization: {
+      en: "Undergraduate Program in Information Systems — [University Name Placeholder]",
+      id: "Program Sarjana (S1) Sistem Informasi — [Placeholder Nama Universitas]",
+    },
+    roleOrDegree: {
+      en: "Bachelor of Information Systems (S.Kom.) Candidate",
+      id: "Kandidat Sarjana Komputer (S.Kom.) — Sistem Informasi",
+    },
+    period: {
+      en: "2024 — Present",
+      id: "2024 — Sekarang",
+    },
+    location: "Indonesia",
+    description: {
+      en: "Focusing on the intersection of software engineering, relational database systems, enterprise architecture, and data-driven decision support.",
+      id: "Berfokus pada persimpangan antara rekayasa perangkat lunak, sistem basis data relasional, arsitektur enterprise, dan sistem pendukung keputusan berbasis data.",
+    },
+    highlights: {
+      en: [
+        "Relevant Coursework: Database Management Systems, Algorithms & Data Structures, Systems Analysis & Design, Enterprise Resource Planning (ERP), Business Intelligence & Data Warehousing, Statistics & Probability.",
+        "Led technical database design and backend implementation across multiple semester capstone projects.",
+      ],
+      id: [
+        "Mata Kuliah Relevan: Sistem Manajemen Basis Data, Algoritma & Struktur Data, Analisis & Perancangan Sistem, Enterprise Resource Planning (ERP), Business Intelligence & Gudang Data, Statistika & Probabilitas.",
+        "Memimpin perancangan basis data teknis dan implementasi backend pada berbagai proyek akhir semester.",
+      ],
+    },
+    isPlaceholderNote: {
+      en: "Note: Update `[University Name Placeholder]` and GPA in `src/data/portfolio.ts` with your exact institution details.",
+      id: "Catatan: Perbarui `[Placeholder Nama Universitas]` dan IPK di `src/data/portfolio.ts` sesuai detail institusi Anda.",
+    },
+  },
+  {
+    id: "exp-academic-projects",
+    type: "Project & Lab",
+    typeLabel: {
+      en: "Academic & Independent Engineering",
+      id: "Proyek Akademik & Rekayasa Mandiri",
+    },
+    organization: {
+      en: "Software & Data Systems Portfolio Projects",
+      id: "Proyek Portofolio Sistem Perangkat Lunak & Data",
+    },
+    roleOrDegree: {
+      en: "Student Software & Data Developer",
+      id: "Pengembang Perangkat Lunak & Data (Mahasiswa)",
+    },
+    period: {
+      en: "2024 — Present",
+      id: "2024 — Sekarang",
+    },
+    location: "Indonesia",
+    description: {
+      en: "Designing and building end-to-end transactional web applications, analytical SQL marts, and batch ETL pipelines to solve concrete operational problems.",
+      id: "Merancang dan membangun aplikasi web transaksional end-to-end, mart SQL analitik, serta pipeline ETL batch untuk menyelesaikan permasalahan operasional nyata.",
+    },
+    highlights: {
+      en: [
+        "Engineered 6 documented case studies spanning Software Engineering, Data Analytics, Data Engineering, Data Science, and Web Development.",
+        "Applied production software practices including Git version control, strict TypeScript typing, normalized SQL migrations, and automated static deployment.",
+      ],
+      id: [
+        "Membangun 6 studi kasus terdokumentasi yang mencakup Software Engineering, Data Analytics, Data Engineering, Data Science, dan Web Development.",
+        "Menerapkan praktik rekayasa perangkat lunak standar produksi termasuk kontrol versi Git, pengetikan ketat TypeScript, migrasi SQL ternormalisasi, dan deployment otomatis.",
+      ],
+    },
+  },
+  {
+    id: "org-campus",
+    type: "Organization",
+    typeLabel: {
+      en: "Organizational Experience",
+      id: "Pengalaman Organisasi",
+    },
+    organization: {
+      en: "Information Systems Student Association / Tech Community — [Organization Placeholder]",
+      id: "Himpunan Mahasiswa Sistem Informasi / Komunitas Teknologi — [Placeholder Organisasi]",
+    },
+    roleOrDegree: {
+      en: "Technology / Academic Division Member",
+      id: "Anggota Divisi Teknologi / Akademik",
+    },
+    period: {
+      en: "2024 — Present",
+      id: "2024 — Sekarang",
+    },
+    location: "Indonesia",
+    description: {
+      en: "Collaborating with peers on technical study groups, peer mentoring in SQL and programming fundamentals, and student digital utility initiatives.",
+      id: "Berkolaborasi dengan rekan mahasiswa dalam kelompok belajar teknis, pendampingan dasar SQL dan pemrograman, serta inisiatif utilitas digital kampus.",
+    },
+    highlights: {
+      en: [
+        "Facilitated peer study sessions on relational database normalization, SQL joins, and Git collaboration workflows.",
+        "Contributed to internal documentation and web tooling for student activities.",
+      ],
+      id: [
+        "Memfasilitasi sesi belajar bersama mengenai normalisasi basis data relasional, join SQL, dan alur kolaborasi Git.",
+        "Berkontribusi pada dokumentasi internal dan peralatan web untuk kegiatan kemahasiswaan.",
+      ],
+    },
+    isPlaceholderNote: {
+      en: "Editable placeholder: Customize with your exact campus organization, committee role, or practicum assistantship.",
+      id: "Placeholder yang dapat diedit: Sesuaikan dengan nama organisasi kampus, kepanitiaan, atau pengalaman asisten praktikum Anda.",
+    },
+  },
+];
+
+export const TECHNICAL_NOTES: TechnicalNote[] = [
+  {
+    id: "note-sql-ledger",
+    index: "NOTE-01",
+    date: "2026-10",
+    category: "Software Engineering",
+    readingTime: "4 min read",
+    title: {
+      en: "Why Inventory and Financial Systems Should Use Append-Only Ledgers Instead of Mutable Balances",
+      id: "Mengapa Sistem Inventaris dan Keuangan Sebaiknya Menggunakan Buku Besar Append-Only",
+    },
+    summary: {
+      en: "An exploration of how immutable delta records paired with row-locked balance snapshots prevent lost updates and create a built-in audit trail.",
+      id: "Penjelasan bagaimana rekaman selisih (delta) yang bersifat immutable dipadukan dengan snapshot saldo mencegah pembaruan yang hilang dan menciptakan jejak audit.",
+    },
+    keyTakeaways: {
+      en: [
+        "Updating `qty = qty - 5` in place destroys the history of why and when the number changed.",
+        "An append-only ledger records every movement as a signed event (+10 receipt, -5 issue) linked to a source document.",
+        "Combining an immutable ledger table with a row-locked snapshot table gives both O(1) reads and 100% auditability.",
+      ],
+      id: [
+        "Memperbarui `qty = qty - 5` secara langsung menghapus riwayat mengapa dan kapan angka tersebut berubah.",
+        "Buku besar append-only mencatat setiap pergerakan sebagai peristiwa bertanda (+10 masuk, -5 keluar) yang terhubung ke dokumen sumber.",
+        "Menggabungkan tabel buku besar immutable dengan tabel snapshot yang dikunci barisnya memberikan pembacaan O(1) sekaligus auditabilitas 100%.",
+      ],
+    },
+    codeSnippet: {
+      caption: "Reconciling materialized balances against the immutable ledger",
+      code: `SELECT
+    b.sku_id,
+    b.qty_on_hand AS snapshot_qty,
+    COALESCE(SUM(l.delta_qty), 0) AS ledger_sum_qty,
+    (b.qty_on_hand - COALESCE(SUM(l.delta_qty), 0)) AS variance
+FROM warehouse_stock_balances b
+LEFT JOIN stock_ledger_entries l
+    ON b.sku_id = l.sku_id AND b.warehouse_id = l.warehouse_id
+GROUP BY b.sku_id, b.qty_on_hand
+HAVING b.qty_on_hand <> COALESCE(SUM(l.delta_qty), 0);`,
+    },
+    body: {
+      en: [
+        "When beginners design their first e-commerce or inventory database, the most intuitive schema is a `products` table with a `stock_quantity` integer column. Whenever an order arrives, the backend runs an `UPDATE` statement subtracting the ordered quantity.",
+        "In real operational systems, this approach breaks down quickly: if a warehouse count disagrees with the system at the end of the month, there is no way to reconstruct which transaction caused the discrepancy. By treating stock balance as the sum of immutable ledger movements and wrapping updates in a database transaction with `SELECT ... FOR UPDATE`, we gain both concurrency safety and complete historical traceability.",
+      ],
+      id: [
+        "Ketika pemula merancang basis data e-commerce atau inventaris pertama mereka, skema yang paling intuitif adalah tabel `products` dengan kolom integer `stock_quantity`. Setiap kali pesanan masuk, backend menjalankan perintah `UPDATE` untuk mengurangi jumlah stok.",
+        "Dalam sistem operasional nyata, pendekatan ini cepat bermasalah: jika perhitungan fisik gudang berbeda dengan sistem di akhir bulan, tidak ada cara untuk menelusuri transaksi mana yang menyebabkan selisih tersebut. Dengan memperlakukan saldo stok sebagai hasil penjumlahan pergerakan buku besar yang tidak dapat diubah dan membungkus pembaruan dalam transaksi `SELECT ... FOR UPDATE`, kita memperoleh keamanan konkurensi sekaligus ketertelusuran penuh.",
+      ],
+    },
+  },
+  {
+    id: "note-etl-idempotency",
+    index: "NOTE-02",
+    date: "2026-09",
+    category: "Data Engineering",
+    readingTime: "5 min read",
+    title: {
+      en: "Designing Idempotent Batch SQL Loads: Avoiding Duplicate Facts During Backfills",
+      id: "Merancang Pemuatan SQL Batch yang Idempoten: Menghindari Duplikasi Saat Backfill",
+    },
+    summary: {
+      en: "Practical patterns for ensuring that running a daily ETL job once or five times produces the exact same target warehouse state.",
+      id: "Pola praktis untuk memastikan bahwa menjalankan job ETL harian satu kali maupun lima kali tetap menghasilkan kondisi gudang data yang sama persis.",
+    },
+    keyTakeaways: {
+      en: [
+        "Plain `INSERT INTO fact_table SELECT ...` is non-idempotent and will double-count metrics on retry.",
+        "Partition-scoped `DELETE + INSERT` inside a single SQL transaction or deterministic `ON CONFLICT DO UPDATE` makes retries safe.",
+        "Row-level SHA-256 content hashes avoid unnecessary disk writes when upstream records have not changed.",
+      ],
+      id: [
+        "Perintah `INSERT INTO fact_table SELECT ...` biasa bersifat tidak idempoten dan akan menggandakan metrik saat dijalankan ulang.",
+        "Pola `DELETE + INSERT` berbasis partisi di dalam satu transaksi SQL atau `ON CONFLICT DO UPDATE` membuat proses ulang aman.",
+        "Hash konten SHA-256 tingkat baris menghindari penulisan ulang yang tidak perlu jika data hulu tidak berubah.",
+      ],
+    },
+    codeSnippet: {
+      caption: "Transactional partition replacement pattern in PostgreSQL",
+      code: `BEGIN;
+
+DELETE FROM mart.fct_daily_sales
+WHERE sale_date = '2026-09-15';
+
+INSERT INTO mart.fct_daily_sales (sale_date, store_id, net_revenue_idr, order_count)
+SELECT
+    sale_date,
+    store_id,
+    SUM(net_amount_idr) AS net_revenue_idr,
+    COUNT(DISTINCT order_id) AS order_count
+FROM stg.stg_orders_validated
+WHERE sale_date = '2026-09-15'
+GROUP BY sale_date, store_id;
+
+COMMIT;`,
+    },
+    body: {
+      en: [
+        "Network timeouts, malformed CSV uploads, and late-arriving operational records mean that every batch pipeline will eventually need to be re-run for a past date window.",
+        "By scoping transformations to explicit date parameters and wrapping `DELETE` + `INSERT` (or `MERGE` / `ON CONFLICT`) inside a single ACID transaction, downstream analysts never see half-loaded partitions or duplicated revenue totals.",
+      ],
+      id: [
+        "Kegagalan jaringan, unggahan CSV yang kurang rapi, dan data operasional yang terlambat masuk membuat setiap pipeline batch cepat atau lambat harus dijalankan ulang untuk rentang tanggal masa lalu.",
+        "Dengan membatasi transformasi pada parameter tanggal yang eksplisit dan membungkus `DELETE` + `INSERT` (atau `MERGE` / `ON CONFLICT`) di dalam satu transaksi ACID, analis di hilir tidak akan pernah melihat partisi yang baru terisi sebagian atau total pendapatan yang terduplikasi.",
+      ],
+    },
+  },
+  {
+    id: "note-oltp-vs-olap",
+    index: "NOTE-03",
+    date: "2026-08",
+    category: "Data Analytics",
+    readingTime: "4 min read",
+    title: {
+      en: "3NF Relational Schemas vs. Kimball Star Schemas: Knowing When to Normalize and When to Denormalize",
+      id: "Skema Relasional 3NF vs. Star Schema Kimball: Kapan Menormalisasi dan Kapan Mendenormalisasi",
+    },
+    summary: {
+      en: "How Information Systems bridges application database design (OLTP) and analytical warehouse design (OLAP) without confusing their goals.",
+      id: "Bagaimana disiplin Sistem Informasi menjembatani desain basis data aplikasi (OLTP) dan desain gudang data analitik (OLAP).",
+    },
+    keyTakeaways: {
+      en: [
+        "3NF optimizes for write integrity, small row locking footprints, and zero update anomalies in web apps.",
+        "Star Schemas optimize for human-readable analytical queries, predictable join paths, and fast column aggregations.",
+        "Keeping transactional tables normalized while materializing dimensional views/marts gives engineering and analytics teams the best of both worlds.",
+      ],
+      id: [
+        "3NF mengoptimalkan integritas tulis, penguncian baris yang ringan, dan nol anomali pembaruan pada aplikasi web.",
+        "Star Schema mengoptimalkan kemudahan kueri analitik, jalur join yang terprediksi, dan agregasi kolom yang cepat.",
+        "Menjaga tabel transaksional tetap ternormalisasi sembari membentuk view/mart dimensional memberikan keuntungan terbaik bagi tim rekayasa maupun analitik.",
+      ],
+    },
+    body: {
+      en: [
+        "Working across both Web Development and Data Analytics highlights a frequent tension: application engineers want highly normalized tables to prevent inconsistent state, while data analysts want wide, flattened tables so they do not have to write nine joins just to group revenue by product category and customer region.",
+        "Rather than compromising the application database, defining a clean contract between the OLTP schema and an analytical reporting layer (`mart` views or scheduled ELT tables) keeps both workloads fast and maintainable.",
+      ],
+      id: [
+        "Bekerja di bidang Pengembangan Web sekaligus Analitik Data memperlihatkan ketegangan yang sering terjadi: engineer aplikasi menginginkan tabel yang sangat ternormalisasi untuk mencegah inkonsistensi state, sementara analis data menginginkan tabel yang ramah baca agar tidak perlu menulis sembilan join hanya untuk mengelompokkan pendapatan.",
+        "Alih-alih mengorbankan basis data aplikasi, mendefinisikan kontrak yang bersih antara skema OLTP dan lapisan pelaporan analitik (`mart` view atau tabel ELT terjadwal) membuat kedua beban kerja tetap cepat dan mudah dipelihara.",
+      ],
+    },
+  },
+];

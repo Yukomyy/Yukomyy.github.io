@@ -1,0 +1,53 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2039 >>
+stream
+BT
+/F1 18 Tf 50 740 Td (FAHMI IRFAN) Tj
+/F1 10 Tf 0 -18 Td (Information Systems Undergraduate  |  Software & Data Engineering) Tj
+0 -14 Td (Email: fhmiirfn2006@gmail.com  |  GitHub: github.com/fahmiirfan  |  Location: Indonesia) Tj
+/F1 12 Tf 0 -28 Td (PROFESSIONAL OVERVIEW) Tj
+/F1 9 Tf 0 -15 Td (Information Systems student focused on Software Engineering, Data Analytics, Data Engineering, and Web Development.) Tj
+0 -13 Td (Experienced in designing normalized PostgreSQL schemas, analytical SQL pipelines, and full-stack TypeScript/Next.js web apps.) Tj
+/F1 12 Tf 0 -26 Td (TECHNICAL FOCUS & SKILLS) Tj
+/F1 9 Tf 0 -15 Td (- Software & Web: TypeScript, JavaScript, Python, SQL, React, Next.js, Node.js, Tailwind CSS, REST APIs) Tj
+0 -13 Td (- Data Systems: PostgreSQL, DuckDB, Pandas, NumPy, Window Functions, Cohort Analysis, Star Schema ETL, Scikit-Learn) Tj
+0 -13 Td (- Infrastructure: Git, GitHub Actions, Docker, Prisma ORM, Linux/WSL) Tj
+/F1 12 Tf 0 -26 Td (SELECTED ENGINEERING & DATA PROJECTS) Tj
+/F1 9 Tf 0 -15 Td (1. Modular Inventory & Procurement Management System [TypeScript, Next.js, PostgreSQL, Prisma]) Tj
+0 -13 Td (   Designed 14-table 3NF schema and ACID append-only stock ledger preventing negative stock race conditions.) Tj
+0 -15 Td (2. Retail Sales & Customer Cohort Retention Analytics [SQL, Python, Pandas, DuckDB]) Tj
+0 -13 Td (   Processed 500k+ invoice rows into monthly cohort retention matrices and NTILE 5 RFM customer segments.) Tj
+0 -15 Td (3. Automated Operational ETL & Dimensional Data Warehouse [Python, PostgreSQL, Kimball Star Schema]) Tj
+0 -13 Td (   Engineered idempotent Bronze/Silver/Gold batch ELT pipeline with SCD Type 2 dimensions and SQL quality checks.) Tj
+0 -15 Td (4. Campus Lab & Shared Facility Scheduling Platform [Next.js, TypeScript, PostgreSQL btree_gist]) Tj
+0 -13 Td (   Built conflict-free reservation platform using PostgreSQL tstzrange exclusion constraints.) Tj
+0 -28 Td ([Editable Placeholder Resume: Replace public/resume-fahmi-irfan.pdf with your personal CV PDF.]) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000002332 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2402
+%%EOF
